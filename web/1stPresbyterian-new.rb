@@ -85,10 +85,10 @@ PFnameId.send_keys "man"
 driver.find_element(:id, "profile_parent_0_lname").clear
 PLnameId = driver.find_element(:id, "profile_parent_0_lname")
 PLnameId.send_keys "super"
-
+##########################################################################################################################################
 sleep(2)
 emailId = driver.find_element(:id, "profile_parent_0_email")
-emailId.send_keys "ios64@test.com"
+emailId.send_keys "man10@test.com"
 
 
 #parent phone number

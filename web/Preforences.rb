@@ -22,7 +22,7 @@ SubmitButton.click
 #Click on Preferences
 driver.find_element(:link, "Preferences").click
 
-#CurrentPassword enter
+/#CurrentPassword enter
 sleep(5)
 #driver.find_element(:id, "user_current_password").clear
 CurrentPasswordId = driver.find_element(:id, "user_current_password")
@@ -47,7 +47,7 @@ MilestoneId.click
 sleep(5)
 chkbox = driver.find_element(:name, "ae_notification_opt_out")
 NotificationId = driver.find_element(:id, "ae_notification_opt_out")
-NotificationId.click
+NotificationId.click/
 
 #Add new child and preferred name
 sleep(5)

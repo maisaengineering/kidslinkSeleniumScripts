@@ -5,10 +5,10 @@ driver = Selenium::WebDriver.for :firefox
 
 #Loading the assertselenium URL
 driver.navigate.to "http://kl-json.herokuapp.com"
-
+driver.manage().window().maximize()
 #Typing the UserName
 EmailId = driver.find_element(:id, "user_email")
-EmailId.send_keys "sas1@test.com"
+EmailId.send_keys "sas2@test.com"
 
 #Typing the Email-Id
 PasswordId = driver.find_element(:id, "user_password")
@@ -23,57 +23,48 @@ sleep(5)
 driver.find_element(:link, "view all").click
 #
 sleep(5)
-driver.find_element(:link, "Health").click
+driver.find_element(:link, "Household").click
 #
 sleep(5)
-driver.find_element(:link, "Allergy details").click
+driver.find_element(:link, "Contract").click
 #
 sleep(5)
-#########################################        document view  
-												 #driver.find_element(:link, "View").click
+driver.find_element(:link, "Household help contract").click
+#
+########### Document created date enter below link and It will run only more than 1 documents in same category.Otherwise put comment in below link(First Doc).
+sleep(5)
+driver.find_element(:link, "12/19/2005").click
+#########################################        Document view  
+sleep(5)
+driver.find_element(:link, "View").click
 
-#########################################		 document edit..........
+#########################################		 Document edit..........
+sleep(5)
 driver.find_element(:link, "Edit").click
-
-#########################################		 Delete document
+#########################################		 Change document type.........								
+sleep(5)
+driver.find_element(:link, "change type").click
+#########################################        Select document type->household sub category    											
+sleep(10)		
+driver.find_element(:id, "5217606b59a2a5065e00005e").click
+																							
+#########################################		 Delete document     
 sleep(5)
 driver.find_element(:link, "Delete document").click
-
-########################################		  Click on OK button
+#########################################		 Click on OK button document will be deleted...
 			#sleep(5)
 			#driver.switch_to.alert.accept
-
 #########################################        click on cancel button
-			sleep(10)
-			driver.switch_to.alert.dismiss
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
-/#####33details
-
+sleep(10)
+driver.switch_to.alert.dismiss
+#########################################        SAVE DOCUMENT
 sleep(5)
-cmpnyId = driver.find_element(:id, "document_org_provider").clear
-cmpnyId = driver.find_element(:id, "document_org_provider")
-cmpnyId.send_keys "maisa solutions"
-
-sleep(5)
-descrnId = driver.find_element(:id, "document_description")
-descrnId.send_keys "maisa solutions is located in hyderabad"/
-
-
+driver.find_element(:link, "Save document").click
+ 
+ 
+ 
+ 
+ 
 
 
 

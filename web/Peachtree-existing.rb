@@ -31,7 +31,8 @@ SubmitButton.click
 sleep(2)
 relation_select = driver.find_element(:name, "profile_id")
 ChildapplyId = driver.find_element(:id, "profile_id")
-ChildapplyId.send_keys "r"
+ChildapplyId.send_keys "**New child**"
+#ChildapplyId.send_keys "r"
 
 #
 sleep(5)

@@ -1,6 +1,0 @@
-
-function loginandlogout () {
-  dynlogin();
-  logout()
-
-}

@@ -17,9 +17,9 @@ newId.click
 sleep(2)
 
 
-#Typing the UserName
+############################################################ ##################################Typing the UserName
 EmailId = driver.find_element(:id, "user_email")
-EmailId.send_keys "ios1@test.com"
+EmailId.send_keys "ios11@test.com"
 
 #Typing the Email-Id
 PasswordId = driver.find_element(:id, "user_password")
@@ -34,8 +34,8 @@ SubmitButton.click
 sleep(2)
 relation_select = driver.find_element(:name, "profile_id")
 ChildapplyId = driver.find_element(:id, "profile_id")
-#ChildapplyId.send_keys "C B"
-ChildapplyId.send_keys "**New child**"
+ChildapplyId.send_keys "C"
+#ChildapplyId.send_keys "**New child**"
 
 #
 sleep(2)

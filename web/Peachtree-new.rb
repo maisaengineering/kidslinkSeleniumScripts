@@ -125,7 +125,7 @@ PLnameId.send_keys "reddy"
 ####################################################################################################edit email
 driver.find_element(:id, "profile_parent_0_email").clear
 emailId = driver.find_element(:id, "profile_parent_0_email")
-emailId.send_keys "singireddy447+08@gmail.com"
+emailId.send_keys "singireddy447+0008@gmail.com"
 
 #parent phone number
 driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear

@@ -19,7 +19,8 @@ sleep(2)
 
 #Typing the UserName
 EmailId = driver.find_element(:id, "user_email")
-EmailId.send_keys "ios1@test.com"
+EmailId.send_keys "singireddy447+0077@gmail.com"
+#77
 
 #Typing the Email-Id
 PasswordId = driver.find_element(:id, "user_password")
@@ -34,9 +35,9 @@ SubmitButton.click
 sleep(2)
 relation_select = driver.find_element(:name, "profile_id")
 ChildapplyId = driver.find_element(:id, "profile_id")
-#ChildapplyId.send_keys "C B"
-ChildapplyId.send_keys "r"
 
+#ChildapplyId.send_keys "r"
+ChildapplyId.send_keys "**New child**"
 #
 sleep(2)
 Submit = driver.find_element(:name, "commit")
@@ -117,7 +118,7 @@ stateId.send_keys "Telangana"
 driver.find_element(:id, "profile_univ__zip").clear
 zipId = driver.find_element(:id, "profile_univ__zip")
 zipId.send_keys "1p"
-/#pppppppp
+#pppppppp
 
 relation_select = driver.find_element(:name, "profile[parent][0][child_relationship]")
 scndclassId = driver.find_element(:id, "profile_parent_0_child_relationship")
@@ -133,8 +134,8 @@ driver.find_element(:id, "profile_parent_0_lname").clear
 PLnameId = driver.find_element(:id, "profile_parent_0_lname")
 PLnameId.send_keys "super"
 
-email2Id = driver.find_element(:id, "profile_parent_1_email")
-email2Id.send_keys "ios2@test.com"
+#email2Id = driver.find_element(:id, "profile_parent_1_email")
+#email2Id.send_keys "ios2@test.com"
 
 
 #parent phone number
@@ -170,7 +171,7 @@ P3PhoneId.send_keys "5546644646464"
 #sleep(5)
 P3Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
 P3phId = driver.find_element(:id, "profile_parent_0_phone3_type")
-P3phId.send_keys "w"/
+P3phId.send_keys "w"
 
 ##########
 sleep(5)

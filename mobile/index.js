@@ -2,7 +2,6 @@ var target = UIATarget.localTarget();
 var app = target.frontMostApp();
 var window = app.mainWindow();
 
-
 #import "registration_login.js"
 #import "login.js"
 #import "login_first.js"
@@ -23,6 +22,7 @@ var window = app.mainWindow();
 #import "dynregistration_login.js"
 #import "dynregistration.js"
 #import "tour.js"
+#import "addcomment.js"
 
 /**** select your case to test ****/
 
@@ -30,48 +30,39 @@ var window = app.mainWindow();
 //registration_login();
 //login_first();
 //login();
-//milestone(); 
+//saysomething()
 //moment();
+//milestone();
 //upload_doc();
 //view_change_doc();
 //editprofile();
 //addchild();
 //inviteparentaccess()
-//invitefriend ()
+//invitefriend()
 //changepassword()
 //sharepostfb();
-//tour.js();
+//addcomment();
+
 //logout();
 
 
-/*********** edit controls **************/
 
+var selectdevice = "iphone4"
 
-
-
-
-//dynamic login loop//
-
+//dynamic login test//
 var email_login = ["ios20@test.com", "ios21@test.com", "ios26@test.com", "ios27@test.com"];
 var text="";
-for(i=0; i<email_login.length; i++) {
-    
-    //text+=loginandlogout();
+var i;
+for(i=0; i<2 i++) {
+    text+=loginandlogout();
 }
 
-
-
-//dynamic register loop//
-
-var email_regsiter = ["ios83@test.com", "ios84@test.com"];
-var phonenumber_register = ["9999999983", "9999999984"];
-
-
+//dynamic register test//
+var email_regsiter = ["ios89@test.com"];
+var phonenumber_register = ["9999999989"];
 var text_r="";
-
 for(j=0; j<phonenumber_register.length; j++) {
-    
-    text_r+=dynregistration();
+    //text_r+=dynregistration();
 }
 
 

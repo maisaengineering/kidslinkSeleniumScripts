@@ -14,9 +14,9 @@ newId = driver.find_element(:id, "rwkExistingText")
 newId.click
 
 sleep(5)
-#Typing the UserName
+############################################################################################################### Typing the UserName
 EmailId = driver.find_element(:id, "user_email")
-EmailId.send_keys "ios11@test.com"
+EmailId.send_keys "singireddy447+0095@gmail.com"
 
 #Typing the Email-Id
 PasswordId = driver.find_element(:id, "user_password")
@@ -31,7 +31,9 @@ SubmitButton.click
 sleep(5)
 relation_select = driver.find_element(:name, "profile_id")
 ChildapplyId = driver.find_element(:id, "profile_id")
-ChildapplyId.send_keys "**New child**"
+#ChildapplyId.send_keys "**New child**"
+ChildapplyId.send_keys "k"
+
 
 #
 sleep(5)
@@ -206,6 +208,8 @@ driver.find_element(:link, "Continue to the KidsLink dashboard").click()
 
 
 
+/#Quitting the browser
+driver.quit/
 
 
 

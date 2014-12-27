@@ -78,9 +78,9 @@ PFnameId.send_keys "shiva"
 driver.find_element(:id, "profile_parent_0_lname").clear
 PLnameId = driver.find_element(:id, "profile_parent_0_lname")
 PLnameId.send_keys "kumar"
-
+##########################################################################################################################
 email2Id = driver.find_element(:id, "profile_parent_0_email")
-email2Id.send_keys "ios67@test.com"
+email2Id.send_keys "man11@test.com"
 
 
 #parent phone number
@@ -203,15 +203,19 @@ chkbox = driver.find_element(:name, "privacy_policy1")
 AckId = driver.find_element(:id, "privacy_policy1")
 AckId.click
 
-
+#
 sleep(2)
 Submit4 = driver.find_element(:name, "commit")
 Submit4.click
+#
 sleep(5)
 driver.find_element(:link, "Continue to the KidsLink dashboard").click()
-
-
-
+/#
+sleep(2)
+driver.find_element(:link, "Okay Thanks!").click()
+#
+sleep(2)
+driver.find_element(:link, "Okay Thanks!").click()/
 
 
 
