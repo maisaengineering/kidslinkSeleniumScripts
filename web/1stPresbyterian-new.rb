@@ -5,16 +5,17 @@ driver = Selenium::WebDriver.for :firefox
 
 #Loading the assertselenium URL
 driver.navigate.to "https://kl-json.herokuapp.com/home/index"
+driver.manage().window().maximize()
+
+#*******************************************************************#
+###################### 1st Presbyterian Preschool ###################
+#*******************************************************************#
+sleep(2)
+driver.find_element(:xpath, "//*[contains(text(),'Apply the  1st Presbyterian Preschool for season 2015-2016')]").click
+sleep(3)
+driver.find_element(:xpath, "(//span[@id='rwkExistingText'])[2]").click
 
 sleep(2)
-#1st
-driver.navigate.to "https://kl-json.herokuapp.com/organizations/profile_request?kidslink_network_id=kl_org_02&org_id=524e0ffaf77e1b0829000013&season_id=54406b4f3561350008240000&season_year=2015-2016"
-
-sleep(2)
-driver.navigate.to "https://kl-json.herokuapp.com/profiles/new?org_id=524e0ffaf77e1b0829000013&season_id=54406b4f3561350008240000&season_year=2015-2016"
-
-sleep(2)
-
 driver.find_element(:id, "profile_univ__fname").clear
 FnameId = driver.find_element(:id, "profile_univ__fname")
 FnameId.send_keys "raju"

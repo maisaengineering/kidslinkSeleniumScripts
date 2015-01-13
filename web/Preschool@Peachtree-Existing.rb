@@ -5,11 +5,13 @@ driver = Selenium::WebDriver.for :firefox
 
 #Loading the assertselenium URL
 driver.navigate.to "https://kl-json.herokuapp.com/home/index"
+driver.manage().window().maximize()
 
+#*******************************************************************#
+######## Preschool @ Peachtree Road United Methodist Church #########
+#*******************************************************************#
 sleep(2)
-#1st
-driver.navigate.to "https://kl-json.herokuapp.com/organizations/profile_request?kidslink_network_id=thepreschoolatprumc&org_id=52896ddd78e2c1ef26000017&season_id=546958fe3466330008050000&season_year=2015-2016"
-
+driver.find_element(:xpath, "//*[contains(text(),'Apply the  The Preschool @ Peachtree Road United Methodist Church for season 2015-2016')]").click
 sleep(3)
 newId = driver.find_element(:id, "rwkExistingText")
 newId.click

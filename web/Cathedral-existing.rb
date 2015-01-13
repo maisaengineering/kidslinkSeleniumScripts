@@ -5,10 +5,13 @@ driver = Selenium::WebDriver.for :firefox
 
 #Loading the assertselenium URL
 driver.navigate.to "https://kl-json.herokuapp.com/home/index"
+driver.manage().window().maximize()
 
+#*******************************************************************#
+####################### Cathedral Preschool #########################
+#*******************************************************************#
 sleep(2)
-#Cathedral
-driver.navigate.to "https://kl-json.herokuapp.com/organizations/profile_request?kidslink_network_id=kl_org_07&org_id=5286bcd28bf7cc9a93000003&season_id=546242bd3833630005150000&season_year=2015-2016"
+driver.find_element(:xpath, "//*[contains(text(),'Apply the  Cathedral Preschool for season 2015-2016')]").click
 sleep(3)
 newId = driver.find_element(:id, "rwkExistingText")
 newId.click

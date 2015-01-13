@@ -8,15 +8,16 @@ driver = Selenium::WebDriver.for :firefox
 #Loading the assertselenium URL
 driver.navigate.to "https://kl-json.herokuapp.com/home/index"
 driver.manage().window().maximize()
+
+#*******************************************************************#
+################ Peachtree Presbyterian Preschool ###################
+#*******************************************************************#
 sleep(2)
 puts "Selecting organization"
-#********************************************#
-################ Cathedral ###################
-#********************************************#
-
-driver.navigate.to "https://kl-json.herokuapp.com/organizations/profile_request?kidslink_network_id=kl_org_01&org_id=5082f5d279216d14d000001e&season_id=544061a4356135000a040000&season_year=2015-2016"
+sleep(2)
+driver.find_element(:xpath, "//*[contains(text(),'Apply the  Peachtree Presbyterian Preschool for season 2015-2016')]").click
 sleep(3)
-driver.navigate.to "https://kl-json.herokuapp.com/profiles/new?org_id=5082f5d279216d14d000001e&season_id=544061a4356135000a040000&season_year=2015-2016"
+driver.find_element(:xpath, "(//span[@id='rwkExistingText'])[2]").click
 
 #Prefered name
 sleep(2)
@@ -123,12 +124,12 @@ PLnameId.send_keys "reddy"
 puts "Enter email..."
 driver.find_element(:id, "profile_parent_0_email").clear
 emailId = driver.find_element(:id, "profile_parent_0_email")
-emailId.send_keys "singireddy447+w6@gmail.com"
+emailId.send_keys "singireddy447+w8@gmail.com"
 
 #parent phone number
 driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
 P1PhoneId = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
-P1PhoneId.send_keys "55555555555"
+P1PhoneId.send_keys "5555555555"
 
 #parent phone no.type
 #sleep(5)
@@ -365,42 +366,59 @@ puts "Change document type..."
 driver.find_element(:link, "change type").click
 ############## select document type->household sub category  ########  											
 sleep(10)		
-driver.find_element(:id, "5217606b59a2a5065e00005e").click		
-#*******************************************************************#
-########################## Delete document ##########################
-#*******************************************************************# 
-sleep(5)
-driver.find_element(:link, "Delete document").click
-#**********  Click on OK button document will be deleted...*********#
-#sleep(5)
-#driver.switch_to.alert.accept
-#****************** click on cancel button  ************************#
-sleep(10)
-driver.switch_to.alert.dismiss
+driver.find_element(:id, "5217606b59a2a5065e00005e").click	
+
 #**************************** SAVE DOCUMENT ************************#
 sleep(5)
 driver.find_element(:link, "Save document").click
-#*******************************************************************#
-########################## View Document ############################
-#*******************************************************************# 
-sleep(5)
-driver.find_element(:link, "Household").click
-sleep(5)
-driver.find_element(:link, "Estimate").click
+
 #*******************************************************************#
 ########################## Edit Document ############################
 #*******************************************************************#
 sleep(5)
+puts "Edit document details..."
+driver.find_element(:link, "Household").click
+sleep(5)
+driver.find_element(:link, "Estimate").click
+sleep(5)
 driver.find_element(:link, "Edit").click
+#*********************** Enter ORG details *************************#										 
+sleep(5)
+driver.find_element(:xpath, "(//input[@id='document_org_provider'])[2]").clear
+Edit = driver.find_element(:xpath, "(//input[@id='document_org_provider'])[2]")
+Edit.send_keys "In 2002  Almanack ranked him the second greatest Test batsman of all time"
+#*********************** Enter description details *************************#											 
+driver.find_element(:xpath, "(//input[@id='document_description'])[2]").clear
+Editdescription = driver.find_element(:xpath, "(//input[@id='document_description'])[2]")
+Editdescription.send_keys "Tendulkar received the Arjuna Award in 1994 for his outstanding sporting achievement"
+#Date
+driver.find_element(:id, "document_edit_taken_on").clear
+dateId = driver.find_element(:id, "document_edit_taken_on")
+dateId.send_keys "01/01/2015"
+#Expire date
+driver.find_element(:id, "document_edit_expire_on").clear
+dateEId = driver.find_element(:id, "document_edit_expire_on")
+dateEId.send_keys "01/01/2016"
+# Save
+sleep(3)
+driver.find_element(:link, "Save document").click
+
 #*******************************************************************#
 ########################## Delete document ##########################
 #*******************************************************************# 
 sleep(5)
 puts "Delete document..."
+driver.find_element(:link, "Household").click
+sleep(5)
+driver.find_element(:link, "Estimate").click
+sleep(5)
+driver.find_element(:link, "Edit").click
+sleep(5)
 driver.find_element(:link, "Delete document").click
 #*************	  Click on OK button document will be deleted...****#
 sleep(5)
 driver.switch_to.alert.accept
+
 #*******************************************************************#
 ####################### Click on childPhotograph ####################
 #*******************************************************************#
@@ -686,10 +704,128 @@ sleep(5)
 puts "Select photo manually"
 driver.find_element(:link, "change ID photo").click
 #******************** Again click on childPhotograph ****************#
-sleep(25)
+sleep(20)
 kidprofileId = driver.find_element(:id, "childPhotograph")
 kidprofileId.click
  
+#*******************************************************************#
+########################## ChildPhotograph ##########################
+#*******************************************************************#
+#sleep(15)
+#kidprofileId = driver.find_element(:id, "childPhotograph")
+#kidprofileId.click
+
+#*********************** Click on milestone ************************#
+sleep(10)
+puts "Click on milestone"
+driver.find_element(:xpath, "//div[contains(@class, 'milestonePromptBox recommendedMilestoneBar')]").click
+
+#************************ Switch Milestone *************************#
+sleep(5)
+driver.find_element(:link, "Switch Milestone").click
+
+#********************** Select Photo frame  ************************#
+sleep(5)
+driver.find_element(:xpath, "//div[contains(@class, 'milestonesFeatureEntry')]").click
+
+#************************ Switch Milestone *************************#
+sleep(5)
+driver.find_element(:link, "Switch Milestone").click
+
+#***************** Add browse ideas in milestone *******************#
+sleep(5)
+driver.find_element(:link, "browse ideas").click
+
+#******************* Select a milestone to add *********************#
+sleep(5)
+driver.find_element(:link, "1st Thanksgiving").click
+
+#*********************** Add date in milestone *********************#
+sleep(5)
+driver.find_element(:id, "milestone_milestone_date").clear
+s = driver.find_element(:id, "milestone_milestone_date")
+s.send_keys "12/27/2013"
+
+#*********************** Add text in milestone *********************#
+driver.find_element(:id, "milestone_additional_text").clear
+s = driver.find_element(:id, "milestone_additional_text")
+s.send_keys "Automation Testing"
+
+#******************** Add text in Journal entry  *******************#
+puts "Add text in Journal entry..."
+driver.find_element(:id, "milestone_journal_entry").clear
+st = driver.find_element(:id, "milestone_journal_entry")
+st.send_keys "Sachin Tendulkar (born 24 April 1973) is a former Indian cricketer widely acknowledged as one of the greatest cricketers of all time"
+
+#*********************** select photo in milestone *****************#							 D:\images\sra.jpg
+sleep(2)
+puts "Select photos in your system..."
+driver.find_element(:link, "Select photo").click
+
+#*********************** select photo manually *********************#                                
+sleep(20)
+driver.find_element(:link, "Save milestone").click
+
+#*********************** View and Edit milestone *******************#
+sleep(30)
+puts "Edit milestone..."
+driver.find_element(:class, "mstWrapper_1stthanksgiving_1").click
+#************************ Switch Milestone *************************#
+sleep(10)
+driver.find_element(:link, "Switch Milestone").click
+
+#********************** Select Photo frame  ************************#
+sleep(10)
+driver.find_element(:xpath, "//div[contains(@class, 'milestonesFeatureEntry')]").click
+
+#************************ Switch Milestone *************************#
+sleep(10)
+driver.find_element(:link, "Switch Milestone").click
+
+#***************** Add browse ideas in milestone *******************#
+sleep(10)
+driver.find_element(:link, "browse ideas").click
+
+#******************* Select a milestone to add *********************#
+sleep(15)
+driver.find_element(:link, "1st day of school").click
+
+#*********************** Add date in milestone *********************#
+sleep(10)
+driver.find_element(:id, "milestone_milestone_date").clear
+s = driver.find_element(:id, "milestone_milestone_date")
+s.send_keys "12/27/2014"
+
+#*********************** Add text in milestone *********************#
+driver.find_element(:id, "milestone_additional_text").clear
+s = driver.find_element(:id, "milestone_additional_text")
+s.send_keys "Edit milestone ............"
+
+#******************** Add text in Journal entry  *******************#
+puts "Add text in Journal entry"
+driver.find_element(:id, "milestone_journal_entry").clear
+st = driver.find_element(:id, "milestone_journal_entry")
+st.send_keys " He took up cricket at the age of eleven, made his Test debut against Pakistan at the age of sixteen"
+
+#*********************** select photo in milestone *****************#							 D:\images\sra.jpg
+sleep(2)
+puts "Select photos in your system..."
+driver.find_element(:link, "Select photo").click
+
+#*********************** select photo manually *********************#                                
+sleep(20)
+driver.find_element(:link, "Save milestone").click
+#*********************** delete milestone **************************#
+sleep(25)
+puts "delete milestone..."
+driver.find_element(:class, "mstWrapper_1stdayofschool_1").click
+
+#*********************** select delete option *********************#                                
+sleep(10)
+driver.find_element(:link, "Delete Milestone").click
+
+
+
  
 ######################################################### REFRESH
  #driver.navigate().refresh();
