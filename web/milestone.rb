@@ -1,7 +1,4 @@
 require "selenium-webdriver"
-#################################################################################            D:\images\sra.jpg
-#################################################################################          	 D:\images\r.jpg  
-
 #Firefox browser instantiation
 driver = Selenium::WebDriver.for :firefox
 driver.manage().window().maximize()
@@ -22,13 +19,13 @@ SubmitButton = driver.find_element(:name, "commit")
 SubmitButton.click
 
 #*******************************************************************#
-########################## ChildPhotograph ##########################
+########################## Add milestone ############################
 #*******************************************************************#
-sleep(5)
-kidprofileId = driver.find_element(:id, "childPhotograph")
-kidprofileId.click
-
-#*********************** Click on milestone ************************#
+sleep(10)
+puts "Add milestone..."
+kidprfileId = driver.find_element(:id, "childPhotograph")
+kidprfileId.click
+ 
 sleep(10)
 puts "Click on milestone"
 driver.find_element(:xpath, "//div[contains(@class, 'milestonePromptBox recommendedMilestoneBar')]").click
@@ -70,13 +67,14 @@ driver.find_element(:id, "milestone_journal_entry").clear
 st = driver.find_element(:id, "milestone_journal_entry")
 st.send_keys "Sachin Tendulkar (born 24 April 1973) is a former Indian cricketer widely acknowledged as one of the greatest cricketers of all time"
 
-#*********************** select photo in milestone *****************#							 D:\images\sra.jpg
 sleep(2)
 puts "Select photos in your system..."
 driver.find_element(:link, "Select photo").click
 
-#*********************** select photo manually *********************#                                
-sleep(20)
+#**************** Set the path using software AutoIt and SciTE script editor ****************#
+f = IO.popen("D:/automation_master_copy/web/Original/Upload/milestone.exe")
+puts f.readlines
+sleep(10)
 driver.find_element(:link, "Save milestone").click
 
 #*********************** View and Edit milestone *******************#
@@ -119,14 +117,14 @@ puts "Add text in Journal entry"
 driver.find_element(:id, "milestone_journal_entry").clear
 st = driver.find_element(:id, "milestone_journal_entry")
 st.send_keys " He took up cricket at the age of eleven, made his Test debut against Pakistan at the age of sixteen"
-
-#*********************** select photo in milestone *****************#							 D:\images\sra.jpg
 sleep(2)
 puts "Select photos in your system..."
 driver.find_element(:link, "Select photo").click
 
-#*********************** select photo manually *********************#                                
-sleep(20)
+#**************** Set the path using software AutoIt and SciTE script editor ****************#
+f = IO.popen("D:/automation_master_copy/web/Original/Upload/editmilestone.exe")
+puts f.readlines
+sleep(10)
 driver.find_element(:link, "Save milestone").click
 #*********************** delete milestone **************************#
 sleep(25)
@@ -136,23 +134,6 @@ driver.find_element(:class, "mstWrapper_1stdayofschool_1").click
 #*********************** select delete option *********************#                                
 sleep(10)
 driver.find_element(:link, "Delete Milestone").click
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

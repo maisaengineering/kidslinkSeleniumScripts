@@ -26,19 +26,22 @@ driver.find_element(:link, "view all").click
 sleep(5)
 driver.find_element(:link, "Quick Capture").click
 
+#**************** Set the path using software AutoIt and SciTE script editor ****************#
+f = IO.popen("D:/automation_master_copy/web/Original/Upload/document.exe")
+puts f.readlines
 
-/########################################################### Multiple file upload  ###  PLEASE ENTER LINK MANUALLY      D:\images\sra.jpg
-sleep(25)
+#Multiple document upload at a time 
+/
+sleep(10)
 fileId = driver.find_element(:id, "accept_and_capture")
 fileId = driver.find_element(:link, "Accept and capture page 2").click/
+#**************** Set the path using software AutoIt and SciTE script editor ****************#
+#f = IO.popen("D:/automation_master_copy/web/Original/Upload/childphoto.exe")
+#puts f.readlines
 
-########################################################### Single file upload   ###   PLEASE ENTER LINK MANUALLY      D:\images\sra.jpg
-sleep(25)
+sleep(10)
 driver.find_element(:id, "accept_and_capture")
 driver.find_element(:link, "Accept and save").click
-
-
-
 #Company name
 cmpnyId = driver.find_element(:id, "org_provider")
 cmpnyId.send_keys "Located in hyderabad"

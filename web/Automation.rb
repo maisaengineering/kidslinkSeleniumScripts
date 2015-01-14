@@ -2,9 +2,6 @@ require "selenium-webdriver"
 
 #Firefox browser instantiation
 driver = Selenium::WebDriver.for :firefox
-##############################################################################################   D:\images\sra.jpg
-
-##############################################################################################	 D:\images\r.jpg  
 #Loading the assertselenium URL
 driver.navigate.to "https://kl-json.herokuapp.com/home/index"
 driver.manage().window().maximize()
@@ -124,7 +121,7 @@ PLnameId.send_keys "reddy"
 puts "Enter email..."
 driver.find_element(:id, "profile_parent_0_email").clear
 emailId = driver.find_element(:id, "profile_parent_0_email")
-emailId.send_keys "singireddy447+w8@gmail.com"
+emailId.send_keys "qasravan547+a2@gmail.com"
 
 #parent phone number
 driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
@@ -290,6 +287,7 @@ invitId.click
 sleep(5)
 cancelId = driver.find_element(:link, "Cancel")
 cancelId.click/
+
 #*******************************************************************#
 ########################## Add Document #############################
 #*******************************************************************#    
@@ -311,13 +309,20 @@ driver.find_element(:id, "5217606b59a2a5065e000059").click
 ##############################   Change the series of id below(EX:5a,5b,5c,5d) Sub document
 sleep(2)
 puts "Upload Document..."
-driver.find_element(:id, "5217606b59a2a5065e00005c").click
-/########################################################### Multiple file upload  ###  PLEASE ENTER LINK MANUALLY      D:\images\sra.jpg
-sleep(25)
+driver.find_element(:id, "5217606b59a2a5065e00005b").click
+
+#**************** Set the path using software AutoIt and SciTE script editor ****************#
+f = IO.popen("D:/automation_master_copy/web/Original/Upload/document.exe")
+puts f.readlines
+
+/#Multiple document upload at a time 
+sleep(10)
 fileId = driver.find_element(:id, "accept_and_capture")
 fileId = driver.find_element(:link, "Accept and capture page 2").click/
-########################################################### Single file upload   ###   PLEASE ENTER LINK MANUALLY        D:\images\sra.jpg
-sleep(25)
+#f = IO.popen("D:/automation_master_copy/web/Original/Upload/document.exe")
+#puts f.readlines
+
+sleep(10)
 driver.find_element(:id, "accept_and_capture")
 driver.find_element(:link, "Accept and save").click
 #Company name
@@ -344,29 +349,32 @@ driver.find_element(:link, "Save document").click
 ########################## View Document ############################
 #*******************************************************************# 
 sleep(10)
+puts "View document..."
 driver.find_element(:link, "Contract").click
-#
 sleep(5)
-driver.find_element(:link, "Household help contract").click
-########### Document created date enter below link and It will run only more than 1 documents in same category.Otherwise put comment in below link(First Doc).
+driver.find_element(:xpath, "(//a[contains(text(),'Contract')])[2]").click
+
+#******* If we have more than one document in same category remove the below comment **************#
+#***** If U don't have document created date mentioned -Then give current date in below link ******#
 #sleep(5)
 #driver.find_element(:link, "12/19/2005").click
+
 sleep(5)
 driver.find_element(:link, "View").click
-#*******************************************************************#
-########################## Edit Document ############################
-#*******************************************************************# 
-sleep(5)
-driver.find_element(:link, "Edit").click
+
 #*******************************************************************#
 ########################## Change document type #####################
-#*******************************************************************# 							
+#*******************************************************************# 
 sleep(5)
 puts "Change document type..."
+driver.find_element(:link, "Edit").click
+sleep(5)
 driver.find_element(:link, "change type").click
-############## select document type->household sub category  ########  											
+#*********** Household(Contract) TO Health(Allergy details) *********#  	
+sleep(5)
+driver.find_element(:xpath, "(//a[contains(text(),'Health')])[3]").click
 sleep(10)		
-driver.find_element(:id, "5217606b59a2a5065e00005e").click	
+driver.find_element(:id, "5217606b59a2a5065e000043").click	
 
 #**************************** SAVE DOCUMENT ************************#
 sleep(5)
@@ -377,9 +385,15 @@ driver.find_element(:link, "Save document").click
 #*******************************************************************#
 sleep(5)
 puts "Edit document details..."
-driver.find_element(:link, "Household").click
+driver.find_element(:link, "Health").click
 sleep(5)
-driver.find_element(:link, "Estimate").click
+driver.find_element(:link, "Allergy details").click
+
+#******* If we have more than one document in same category remove the below comment **************#
+#***** If U don't have document created date mentioned -Then give current date in below link ******#
+#sleep(5)
+#driver.find_element(:link, "12/19/2005").click
+
 sleep(5)
 driver.find_element(:link, "Edit").click
 #*********************** Enter ORG details *************************#										 
@@ -408,9 +422,15 @@ driver.find_element(:link, "Save document").click
 #*******************************************************************# 
 sleep(5)
 puts "Delete document..."
-driver.find_element(:link, "Household").click
+driver.find_element(:link, "Health").click
 sleep(5)
-driver.find_element(:link, "Estimate").click
+driver.find_element(:link, "Allergy details").click
+
+#************* If we have more than one document in same category remove the below comment **************#
+#***** If we don't have document created date mentioned above -Then give current date in below link ******#
+#sleep(5)
+#driver.find_element(:link, "01/01/2015").click
+
 sleep(5)
 driver.find_element(:link, "Edit").click
 sleep(5)
@@ -700,22 +720,21 @@ P2email2Id.send_keys "ios333@test.com"/
 ########################## Change ID photo ##########################
 #*******************************************************************#
 sleep(5)
-#*********************************************** Select photo manually **************#    D:\images\r.jpg  
-puts "Select photo manually"
+puts "Select photo..."
 driver.find_element(:link, "change ID photo").click
-#******************** Again click on childPhotograph ****************#
-sleep(20)
-kidprofileId = driver.find_element(:id, "childPhotograph")
-kidprofileId.click
- 
-#*******************************************************************#
-########################## ChildPhotograph ##########################
-#*******************************************************************#
-#sleep(15)
-#kidprofileId = driver.find_element(:id, "childPhotograph")
-#kidprofileId.click
 
-#*********************** Click on milestone ************************#
+#**************** Set the path using software AutoIt and SciTE script editor ****************#
+f = IO.popen("D:/automation_master_copy/web/Original/Upload/childphoto.exe")
+puts f.readlines
+
+#*******************************************************************#
+########################## Add milestone ############################
+#*******************************************************************#
+sleep(10)
+puts "Add milestone..."
+kidprfileId = driver.find_element(:id, "childPhotograph")
+kidprfileId.click
+ 
 sleep(10)
 puts "Click on milestone"
 driver.find_element(:xpath, "//div[contains(@class, 'milestonePromptBox recommendedMilestoneBar')]").click
@@ -757,13 +776,14 @@ driver.find_element(:id, "milestone_journal_entry").clear
 st = driver.find_element(:id, "milestone_journal_entry")
 st.send_keys "Sachin Tendulkar (born 24 April 1973) is a former Indian cricketer widely acknowledged as one of the greatest cricketers of all time"
 
-#*********************** select photo in milestone *****************#							 D:\images\sra.jpg
 sleep(2)
 puts "Select photos in your system..."
 driver.find_element(:link, "Select photo").click
 
-#*********************** select photo manually *********************#                                
-sleep(20)
+#**************** Set the path using software AutoIt and SciTE script editor ****************#
+f = IO.popen("D:/automation_master_copy/web/Original/Upload/milestone.exe")
+puts f.readlines
+sleep(10)
 driver.find_element(:link, "Save milestone").click
 
 #*********************** View and Edit milestone *******************#
@@ -806,14 +826,14 @@ puts "Add text in Journal entry"
 driver.find_element(:id, "milestone_journal_entry").clear
 st = driver.find_element(:id, "milestone_journal_entry")
 st.send_keys " He took up cricket at the age of eleven, made his Test debut against Pakistan at the age of sixteen"
-
-#*********************** select photo in milestone *****************#							 D:\images\sra.jpg
 sleep(2)
 puts "Select photos in your system..."
 driver.find_element(:link, "Select photo").click
 
-#*********************** select photo manually *********************#                                
-sleep(20)
+#**************** Set the path using software AutoIt and SciTE script editor ****************#
+f = IO.popen("D:/automation_master_copy/web/Original/Upload/editmilestone.exe")
+puts f.readlines
+sleep(10)
 driver.find_element(:link, "Save milestone").click
 #*********************** delete milestone **************************#
 sleep(25)
@@ -823,6 +843,147 @@ driver.find_element(:class, "mstWrapper_1stdayofschool_1").click
 #*********************** select delete option *********************#                                
 sleep(10)
 driver.find_element(:link, "Delete Milestone").click
+
+#*******************************************************************#
+########################### Form submition ##########################
+#*******************************************************************# 
+sleep(5)
+puts "Form Submition..."
+driver.find_element(:id, "childPhotograph").click
+sleep(5)
+driver.find_element(:link, "Peachtree Presbyterian Preschool").click
+sleep(5)
+driver.find_element(:link, "Application form").click
+
+#Prefered name
+sleep(2)
+driver.find_element(:id, "profile_univ__nickname").clear
+prename1Id = driver.find_element(:id, "profile_univ__nickname")
+prename1Id.send_keys "ram"
+
+#Legalname
+sleep(2)
+driver.find_element(:id, "profile_univ__fname").clear
+legalname1Id = driver.find_element(:id, "profile_univ__fname")
+legalname1Id.send_keys "kumar"
+
+#lname
+sleep(2)
+driver.find_element(:id, "profile_univ__lname").clear
+lname1Id = driver.find_element(:id, "profile_univ__lname")
+lname1Id.send_keys "reddy"
+#
+sleep(2)
+relation_select = driver.find_element(:name, "profile[univ][][gender]")
+gender1Id = driver.find_element(:id, "profile_univ__gender")
+gender1Id.send_keys "Male"
+#
+driver.find_element(:id, "profile_univ__birthdate").clear
+Kbirth1Id = driver.find_element(:id, "profile_univ__birthdate")
+Kbirth1Id.send_keys "11/11/2012"
+#
+driver.find_element(:id, "profile_univ__food_allergies").clear
+food1Id = driver.find_element(:id, "profile_univ__food_allergies")
+food1Id.send_keys "we are good friends"
+#
+driver.find_element(:id, "profile_univ__medical_issues").clear
+medical1Id = driver.find_element(:id, "profile_univ__medical_issues")
+medical1Id.send_keys "all are very good"
+#
+driver.find_element(:id, "profile_univ__special_needs").clear
+needs1Id = driver.find_element(:id, "profile_univ__special_needs")
+needs1Id.send_keys "special needs "
+#
+driver.find_element(:id, "profile_univ__other_concerns").clear
+concerns1Id = driver.find_element(:id, "profile_univ__other_concerns")
+concerns1Id.send_keys "Other concerns "
+
+#Enrolment
+relation_select = driver.find_element(:name, "profile[seas][][family_currently_enrolled]")
+family1Id = driver.find_element(:id, "profile_seas__family_currently_enrolled")
+family1Id.send_keys "N"
+#
+relation_select = driver.find_element(:name, "profile[seas][][active_member_of_ppc]")
+active1Id = driver.find_element(:id, "profile_seas__active_member_of_ppc")
+active1Id.send_keys "Y"
+#
+driver.find_element(:id, "profile_seas__secondary_choice_of_class_days").clear
+secondary1Id = driver.find_element(:id, "profile_seas__secondary_choice_of_class_days")
+secondary1Id.send_keys "secondary choice of class days"
+#
+relation_select = driver.find_element(:name, "profile[seas][][are_you_enrolling_siblings]")
+siblings1Id = driver.find_element(:id, "profile_seas__are_you_enrolling_siblings")
+siblings1Id.send_keys "Y"
+#Address
+driver.find_element(:id, "profile_univ__address1").clear
+add11Id = driver.find_element(:id, "profile_univ__address1")
+add11Id.send_keys "Address  "
+#
+driver.find_element(:id, "profile_univ__address2").clear
+add21Id = driver.find_element(:id, "profile_univ__address2")
+add21Id.send_keys "Universal address 2"
+#
+driver.find_element(:id, "profile_univ__city").clear
+city1Id = driver.find_element(:id, "profile_univ__city")
+city1Id.send_keys "karimnagar"
+#
+driver.find_element(:id, "profile_univ__state").clear
+state1Id = driver.find_element(:id, "profile_univ__state")
+state1Id.send_keys "Telangana"
+#
+driver.find_element(:id, "profile_univ__zip").clear
+zip1Id = driver.find_element(:id, "profile_univ__zip")
+zip1Id.send_keys "1p"
+
+#*********************************** Parent details **************************#
+relation_select = driver.find_element(:name, "profile[parent][0][child_relationship]")
+scndclass1Id = driver.find_element(:id, "profile_parent_0_child_relationship")
+scndclass1Id.send_keys "f"
+#
+driver.find_element(:id, "profile_parent_0_fname").clear
+PFname1Id = driver.find_element(:id, "profile_parent_0_fname")
+PFname1Id.send_keys "praveen"
+#
+driver.find_element(:id, "profile_parent_0_lname").clear
+PLname1Id = driver.find_element(:id, "profile_parent_0_lname")
+PLname1Id.send_keys "reddy"
+
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
+P1Phone12Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
+P1Phone12Id.send_keys "123456"
+
+#parent phone no.type
+P12Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P1ph12Id = driver.find_element(:id, "profile_parent_0_phone1_type")
+P1ph12Id.send_keys "Mobile"
+
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2").clear
+P2Phone1Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2")
+P2Phone1Id.send_keys "987654"
+
+#parent phone no.type
+P22Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P2ph1Id = driver.find_element(:id, "profile_parent_0_phone2_type")
+P2ph1Id.send_keys "h"
+
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3").clear
+P3Phone1Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3")
+P3Phone1Id.send_keys "6543219"
+
+#parent phone no.type
+P31Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P3ph1Id = driver.find_element(:id, "profile_parent_0_phone3_type")
+P3ph1Id.send_keys "w"
+sleep(2)
+Submit5 = driver.find_element(:name, "commit")
+Submit5.click
+
+#***************** KidsLink Home *******************#
+sleep(3)
+driver.find_element(:link, "kidslink home").click
 
 
 
@@ -836,16 +997,3 @@ driver.find_element(:link, "Delete Milestone").click
  
  
  
- 
- 
- 
-
-
-
-
-
-
-
-
-
-
