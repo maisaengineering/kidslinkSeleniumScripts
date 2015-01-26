@@ -10,24 +10,20 @@ driver.manage().window().maximize()
 ################ Peachtree Presbyterian Preschool ###################
 #*******************************************************************#
 sleep(2)
-puts "Selecting organization"
-sleep(2)
+puts "New User applying Org for Kid..."
 driver.find_element(:xpath, "//*[contains(text(),'Apply the  Peachtree Presbyterian Preschool for season 2015-2016')]").click
 sleep(3)
 driver.find_element(:xpath, "(//span[@id='rwkExistingText'])[2]").click
-
 #Prefered name
 sleep(2)
 driver.find_element(:id, "profile_univ__nickname").clear
 prenameId = driver.find_element(:id, "profile_univ__nickname")
-prenameId.send_keys "chinnu"
-
+prenameId.send_keys "kid1"
 #Legalname
 sleep(2)
 driver.find_element(:id, "profile_univ__fname").clear
 legalnameId = driver.find_element(:id, "profile_univ__fname")
 legalnameId.send_keys "raju"
-
 #lname
 sleep(2)
 driver.find_element(:id, "profile_univ__lname").clear
@@ -67,7 +63,6 @@ relation_select = driver.find_element(:name, "profile[seas][][active_member_of_p
 activeId = driver.find_element(:id, "profile_seas__active_member_of_ppc")
 activeId.send_keys "Y"
 #
-
 relation_select = driver.find_element(:name, "profile[seas][][age_group_and_school_days]")
 schooldaysId = driver.find_element(:id, "profile_seas__age_group_and_school_days")
 schooldaysId.send_keys "3"
@@ -100,64 +95,51 @@ driver.find_element(:id, "profile_univ__zip").clear
 zipId = driver.find_element(:id, "profile_univ__zip")
 zipId.send_keys "1p"
 #*********************************** Parent details **************************#
-
+puts "Entering parent details..."
 relation_select = driver.find_element(:name, "profile[parent][0][child_relationship]")
 scndclassId = driver.find_element(:id, "profile_parent_0_child_relationship")
 scndclassId.send_keys "f"
 #
-
 driver.find_element(:id, "profile_parent_0_fname").clear
 PFnameId = driver.find_element(:id, "profile_parent_0_fname")
 PFnameId.send_keys "suresh"
 #
-
 driver.find_element(:id, "profile_parent_0_lname").clear
 PLnameId = driver.find_element(:id, "profile_parent_0_lname")
 PLnameId.send_keys "reddy"
-#**************************************************************************************************************************#
-################################################################### Enter Email ############################################
-#**************************************************************************************************************************#
 
-puts "Enter email..."
+#**************************************************************************************************************************#
+#################################### Enter Email and Replace all the places-Using (Ctrl+F)##################################
+#**************************************************************************************************************************#
+puts "Enter existing email..."
 driver.find_element(:id, "profile_parent_0_email").clear
 emailId = driver.find_element(:id, "profile_parent_0_email")
-emailId.send_keys "qasravan547+a2@gmail.com"
-
+emailId.send_keys "qasravan547+a23@gmail.com"
 #parent phone number
 driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
 P1PhoneId = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
 P1PhoneId.send_keys "5555555555"
-
 #parent phone no.type
-#sleep(5)
 P1Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
 P1phId = driver.find_element(:id, "profile_parent_0_phone1_type")
 P1phId.send_keys "Mobile"
-
-
 #parent phone number
 driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2").clear
 P2PhoneId = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2")
-P2PhoneId.send_keys "5598997979877979"
-
+P2PhoneId.send_keys "5598997979"
 #parent phone no.type
-#sleep(5)
 P2Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
 P2phId = driver.find_element(:id, "profile_parent_0_phone2_type")
 P2phId.send_keys "h"
-
-
 #parent phone number
 driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3").clear
 P3PhoneId = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3")
-P3PhoneId.send_keys "5546644646464"
-
+P3PhoneId.send_keys "5546644646"
 #parent phone no.type
-#sleep(5)
 P3Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
 P3phId = driver.find_element(:id, "profile_parent_0_phone3_type")
 P3phId.send_keys "w"
-###Agreement
+#Agreement
 sleep(5)
 chkbox = driver.find_element(:name, "profile[seas][][terms]")
 classYesId = driver.find_element(:id, "profile_seas__terms")
@@ -175,7 +157,6 @@ IamId.send_keys "Father"
 #password
 sleep(5)
 driver.find_element(:class, "standardForm").click
-
 sleep(5)
 puts "Password selection..."
 passId = driver.find_element(:name, "user[password]")
@@ -187,12 +168,10 @@ passId.send_keys "123456"
 sleep(5)
 RepassId = driver.find_element(:id, "user_password_confirmation")
 RepassId.send_keys "123456"
-
 sleep(2)
 Submit3 = driver.find_element(:name, "commit")
 Submit3.click
-
-########Billing start
+#Billing start
 puts "Billing Address..."
 driver.find_element(:id, "transaction_credit_card_number").clear
 CDnumberId = driver.find_element(:id, "transaction_credit_card_number")
@@ -221,53 +200,146 @@ BstateId.send_keys "telangana"
 driver.find_element(:id, "transaction_billing_postal_code").clear
 BzipId = driver.find_element(:id, "transaction_billing_postal_code")
 BzipId.send_keys "500052"
-
-sleep(5)
+sleep(3)
 chkbox = driver.find_element(:name, "privacy_policy1")
 AckId = driver.find_element(:id, "privacy_policy1")
 AckId.click
-
-
 sleep(2)
 Submit4 = driver.find_element(:name, "commit")
 Submit4.click
 sleep(10)
 Success = driver.find_element(:link, "Continue to the KidsLink dashboard")
 Success.click
+
 #*******************************************************************#
-################ Add new child and preferred name ###################
-#*******************************************************************#    
-puts "Add new child..."
-sleep(10)
-driver.find_element(:link, "Preferences").click
+######################## Kid 1 Form submition #######################
+#*******************************************************************# 
 sleep(5)
-preferredId = driver.find_element(:id, "user_kid_nickname")
-preferredId.send_keys "cute baby"
-
-#Kid Fname
-#sleep(5)
-FnameId = driver.find_element(:id, "user_kid_fname")
-FnameId.send_keys "sravasthik"
-
-#Kid Lname
-#sleep(5)
-LnameId = driver.find_element(:id, "user_kid_lname")
-LnameId.send_keys "reddy"
-
-#Kidbirth date
-#sleep(5)
-KidbirthId = driver.find_element(:id, "user_kid_birthdate")
-KidbirthId.send_keys "11/11/2011"
-
-#Kid gender selection
+puts "Kid 1 Form Submition..."
+driver.find_element(:id, "childPhotograph").click
 sleep(5)
-select = driver.find_element(:name, "user[kid][gender]")
-KgenderId = driver.find_element(:id, "user_kid_gender")
-KgenderId.send_keys "Girl"
+driver.find_element(:link, "Peachtree Presbyterian Preschool").click
+sleep(5)
+driver.find_element(:link, "Application form").click
+#Prefered name
+sleep(2)
+driver.find_element(:id, "profile_univ__nickname").clear
+prename1Id = driver.find_element(:id, "profile_univ__nickname")
+prename1Id.send_keys "kid1"
+#Legalname
+sleep(2)
+driver.find_element(:id, "profile_univ__fname").clear
+legalname1Id = driver.find_element(:id, "profile_univ__fname")
+legalname1Id.send_keys "kumar"
+#lname
+sleep(2)
+driver.find_element(:id, "profile_univ__lname").clear
+lname1Id = driver.find_element(:id, "profile_univ__lname")
+lname1Id.send_keys "reddy"
+#
+sleep(2)
+relation_select = driver.find_element(:name, "profile[univ][][gender]")
+gender1Id = driver.find_element(:id, "profile_univ__gender")
+gender1Id.send_keys "Male"
+#
+driver.find_element(:id, "profile_univ__birthdate").clear
+Kbirth1Id = driver.find_element(:id, "profile_univ__birthdate")
+Kbirth1Id.send_keys "11/11/2012"
+#
+driver.find_element(:id, "profile_univ__food_allergies").clear
+food1Id = driver.find_element(:id, "profile_univ__food_allergies")
+food1Id.send_keys "we are good friends"
+#
+driver.find_element(:id, "profile_univ__medical_issues").clear
+medical1Id = driver.find_element(:id, "profile_univ__medical_issues")
+medical1Id.send_keys "all are very good"
+#
+driver.find_element(:id, "profile_univ__special_needs").clear
+needs1Id = driver.find_element(:id, "profile_univ__special_needs")
+needs1Id.send_keys "special needs "
+#
+driver.find_element(:id, "profile_univ__other_concerns").clear
+concerns1Id = driver.find_element(:id, "profile_univ__other_concerns")
+concerns1Id.send_keys "Other concerns "
+#Enrolment
+relation_select = driver.find_element(:name, "profile[seas][][family_currently_enrolled]")
+family1Id = driver.find_element(:id, "profile_seas__family_currently_enrolled")
+family1Id.send_keys "N"
+#
+relation_select = driver.find_element(:name, "profile[seas][][active_member_of_ppc]")
+active1Id = driver.find_element(:id, "profile_seas__active_member_of_ppc")
+active1Id.send_keys "Y"
+#
+driver.find_element(:id, "profile_seas__secondary_choice_of_class_days").clear
+secondary1Id = driver.find_element(:id, "profile_seas__secondary_choice_of_class_days")
+secondary1Id.send_keys "secondary choice of class days"
+#
+relation_select = driver.find_element(:name, "profile[seas][][are_you_enrolling_siblings]")
+siblings1Id = driver.find_element(:id, "profile_seas__are_you_enrolling_siblings")
+siblings1Id.send_keys "Y"
+#Address
+driver.find_element(:id, "profile_univ__address1").clear
+add11Id = driver.find_element(:id, "profile_univ__address1")
+add11Id.send_keys "Address  "
+#
+driver.find_element(:id, "profile_univ__address2").clear
+add21Id = driver.find_element(:id, "profile_univ__address2")
+add21Id.send_keys "Universal address 2"
+#
+driver.find_element(:id, "profile_univ__city").clear
+city1Id = driver.find_element(:id, "profile_univ__city")
+city1Id.send_keys "karimnagar"
+#
+driver.find_element(:id, "profile_univ__state").clear
+state1Id = driver.find_element(:id, "profile_univ__state")
+state1Id.send_keys "Telangana"
+#
+driver.find_element(:id, "profile_univ__zip").clear
+zip1Id = driver.find_element(:id, "profile_univ__zip")
+zip1Id.send_keys "1p"
+#*********************************** Parent details **************************#
+relation_select = driver.find_element(:name, "profile[parent][0][child_relationship]")
+scndclass1Id = driver.find_element(:id, "profile_parent_0_child_relationship")
+scndclass1Id.send_keys "f"
+#
+driver.find_element(:id, "profile_parent_0_fname").clear
+PFname1Id = driver.find_element(:id, "profile_parent_0_fname")
+PFname1Id.send_keys "praveen"
+#
+driver.find_element(:id, "profile_parent_0_lname").clear
+PLname1Id = driver.find_element(:id, "profile_parent_0_lname")
+PLname1Id.send_keys "reddy"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
+P1Phone12Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
+P1Phone12Id.send_keys "123456"
+#parent phone no.type
+P12Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P1ph12Id = driver.find_element(:id, "profile_parent_0_phone1_type")
+P1ph12Id.send_keys "Mobile"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2").clear
+P2Phone1Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2")
+P2Phone1Id.send_keys "987654"
+#parent phone no.type
+P22Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P2ph1Id = driver.find_element(:id, "profile_parent_0_phone2_type")
+P2ph1Id.send_keys "h"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3").clear
+P3Phone1Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3")
+P3Phone1Id.send_keys "6543219"
+#parent phone no.type
+P31Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P3ph1Id = driver.find_element(:id, "profile_parent_0_phone3_type")
+P3ph1Id.send_keys "w"
+sleep(2)
+Submit5 = driver.find_element(:name, "commit")
+Submit5.click
+#***************** KidsLink Home *******************#
+sleep(3)
+driver.find_element(:link, "kidslink home").click
 
-#Save profile
-sleep(10)
-driver.find_element(:class, "saveButton").click
 #*******************************************************************#
 ################### Click invitation link ###########################
 #*******************************************************************#    
@@ -427,7 +499,7 @@ sleep(5)
 driver.find_element(:link, "Allergy details").click
 
 #************* If we have more than one document in same category remove the below comment **************#
-#***** If we don't have document created date mentioned above -Then give current date in below link ******#
+#If we don't have document created date mentioned above created date-Then give current date in below link#
 #sleep(5)
 #driver.find_element(:link, "01/01/2015").click
 
@@ -459,24 +531,24 @@ FKnameId.send_keys "SingiReddy"
 #sleep(5)
 driver.find_element(:id, "kid_mname").clear
 MnameId = driver.find_element(:id, "kid_mname")
-MnameId.send_keys "Sravan"
+MnameId.send_keys "kumar"
 
 #Typing the Lname
 driver.find_element(:id, "kid_lname").clear
 KnameId = driver.find_element(:id, "kid_lname")
-KnameId.send_keys "Kumar"
+KnameId.send_keys "Sravan"
 
 #Typing the Preforedred name
 #sleep(5)
 driver.find_element(:id, "kid_nickname").clear
 NnameId = driver.find_element(:id, "kid_nickname")
-NnameId.send_keys "SravanReddy"
+NnameId.send_keys "kid1"
 
 #Enter Birth date
 #sleep(10)
 driver.find_element(:id, "kid_birthdate").clear
 BirthId = driver.find_element(:id, "kid_birthdate")
-BirthId.send_keys "12/19/2000"
+BirthId.send_keys "12/19/2012"
 
 #Kid gender
 #sleep(10)
@@ -726,15 +798,14 @@ driver.find_element(:link, "change ID photo").click
 #**************** Set the path using software AutoIt and SciTE script editor ****************#
 f = IO.popen("D:/automation_master_copy/web/Original/Upload/childphoto.exe")
 puts f.readlines
+sleep(5)
+driver.find_element(:xpath, "//span[contains(@id, 'klLogo')]").click
+sleep(10)
+driver.find_element(:id, "childPhotograph").click
 
 #*******************************************************************#
 ########################## Add milestone ############################
 #*******************************************************************#
-sleep(10)
-puts "Add milestone..."
-kidprfileId = driver.find_element(:id, "childPhotograph")
-kidprfileId.click
- 
 sleep(10)
 puts "Click on milestone"
 driver.find_element(:xpath, "//div[contains(@class, 'milestonePromptBox recommendedMilestoneBar')]").click
@@ -845,28 +916,79 @@ sleep(10)
 driver.find_element(:link, "Delete Milestone").click
 
 #*******************************************************************#
-########################### Form submition ##########################
-#*******************************************************************# 
+################ Add new child and preferred name ###################
+#*******************************************************************#    
+puts "Add new child..."
+sleep(10)
+driver.find_element(:link, "Preferences").click
 sleep(5)
-puts "Form Submition..."
-driver.find_element(:id, "childPhotograph").click
+preferredId = driver.find_element(:id, "user_kid_nickname")
+preferredId.send_keys "kid2"
+#Kid Fname
+FnameId = driver.find_element(:id, "user_kid_fname")
+FnameId.send_keys "sravasthik"
+#Kid Lname
+LnameId = driver.find_element(:id, "user_kid_lname")
+LnameId.send_keys "reddy"
+#Kidbirth date
+KidbirthId = driver.find_element(:id, "user_kid_birthdate")
+KidbirthId.send_keys "11/11/2013"
+#Kid gender selection
 sleep(5)
-driver.find_element(:link, "Peachtree Presbyterian Preschool").click
+select = driver.find_element(:name, "user[kid][gender]")
+KgenderId = driver.find_element(:id, "user_kid_gender")
+KgenderId.send_keys "Girl"
+#Save profile
 sleep(5)
-driver.find_element(:link, "Application form").click
+driver.find_element(:class, "saveButton").click
+sleep(5)
+driver.find_element(:link, "Log Out").click
 
+#*******************************************************************#
+################ Peachtree Presbyterian Preschool ###################
+#*******************************************************************#
+sleep(3)
+driver.navigate.to "https://kl-json.herokuapp.com/home/index"
+sleep(2)
+puts "Selecting organization"
+driver.find_element(:xpath, "//*[contains(text(),'Apply the  Peachtree Presbyterian Preschool for season 2015-2016')]").click
+sleep(3)
+newId = driver.find_element(:id, "rwkExistingText")
+newId.click
+
+#********************************************************************#
+###################### Enter above Email #############################
+#********************************************************************#
+sleep(2)
+#Typing the UserName
+puts "Existing user applying Org for Existing Kid..."
+Email1Id = driver.find_element(:id, "user_email")
+Email1Id.send_keys "qasravan547+a23@gmail.com"
+#Typing the Email-Id
+Password1Id = driver.find_element(:id, "user_password")
+Password1Id.send_keys "123456"
+#Clicking on the Submit Button
+sleep(2)
+driver.find_element(:name, "commit").click
+#
+sleep(2)
+relation_select = driver.find_element(:name, "profile_id")
+Childapply1Id = driver.find_element(:id, "profile_id")
+Childapply1Id.send_keys "sravasthik"
+#
+sleep(5)
+driver.find_element(:name, "commit").click
 #Prefered name
 sleep(2)
+puts "Add org for kid 2..."
 driver.find_element(:id, "profile_univ__nickname").clear
 prename1Id = driver.find_element(:id, "profile_univ__nickname")
-prename1Id.send_keys "ram"
-
-#Legalname
+prename1Id.send_keys "kid2"
+#Lname
 sleep(2)
 driver.find_element(:id, "profile_univ__fname").clear
 legalname1Id = driver.find_element(:id, "profile_univ__fname")
-legalname1Id.send_keys "kumar"
-
+legalname1Id.send_keys "rithwik"
 #lname
 sleep(2)
 driver.find_element(:id, "profile_univ__lname").clear
@@ -879,49 +1001,52 @@ gender1Id = driver.find_element(:id, "profile_univ__gender")
 gender1Id.send_keys "Male"
 #
 driver.find_element(:id, "profile_univ__birthdate").clear
-Kbirth1Id = driver.find_element(:id, "profile_univ__birthdate")
-Kbirth1Id.send_keys "11/11/2012"
+Kbirth19Id = driver.find_element(:id, "profile_univ__birthdate")
+Kbirth19Id.send_keys "11/11/2013"
 #
 driver.find_element(:id, "profile_univ__food_allergies").clear
 food1Id = driver.find_element(:id, "profile_univ__food_allergies")
-food1Id.send_keys "we are good friends"
+food1Id.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
 #
 driver.find_element(:id, "profile_univ__medical_issues").clear
-medical1Id = driver.find_element(:id, "profile_univ__medical_issues")
-medical1Id.send_keys "all are very good"
+medicalId = driver.find_element(:id, "profile_univ__medical_issues")
+medicalId.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
 #
 driver.find_element(:id, "profile_univ__special_needs").clear
 needs1Id = driver.find_element(:id, "profile_univ__special_needs")
-needs1Id.send_keys "special needs "
+needs1Id.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
 #
 driver.find_element(:id, "profile_univ__other_concerns").clear
 concerns1Id = driver.find_element(:id, "profile_univ__other_concerns")
-concerns1Id.send_keys "Other concerns "
-
-#Enrolment
+concerns1Id.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
+#enrolment
 relation_select = driver.find_element(:name, "profile[seas][][family_currently_enrolled]")
 family1Id = driver.find_element(:id, "profile_seas__family_currently_enrolled")
-family1Id.send_keys "N"
+family1Id.send_keys "Y"
 #
 relation_select = driver.find_element(:name, "profile[seas][][active_member_of_ppc]")
 active1Id = driver.find_element(:id, "profile_seas__active_member_of_ppc")
 active1Id.send_keys "Y"
 #
+relation_select = driver.find_element(:name, "profile[seas][][age_group_and_school_days]")
+schooldays1Id = driver.find_element(:id, "profile_seas__age_group_and_school_days")
+schooldays1Id.send_keys "3"
+#
 driver.find_element(:id, "profile_seas__secondary_choice_of_class_days").clear
 secondary1Id = driver.find_element(:id, "profile_seas__secondary_choice_of_class_days")
-secondary1Id.send_keys "secondary choice of class days"
+secondary1Id.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
 #
 relation_select = driver.find_element(:name, "profile[seas][][are_you_enrolling_siblings]")
 siblings1Id = driver.find_element(:id, "profile_seas__are_you_enrolling_siblings")
 siblings1Id.send_keys "Y"
-#Address
+#address
 driver.find_element(:id, "profile_univ__address1").clear
 add11Id = driver.find_element(:id, "profile_univ__address1")
-add11Id.send_keys "Address  "
+add11Id.send_keys "vgp kdsbf sdf sdf sdf "
 #
 driver.find_element(:id, "profile_univ__address2").clear
 add21Id = driver.find_element(:id, "profile_univ__address2")
-add21Id.send_keys "Universal address 2"
+add21Id.send_keys "jksdfkjs fsdf dsdfgdg df gdf g fdg dfs dfgdfg dms"
 #
 driver.find_element(:id, "profile_univ__city").clear
 city1Id = driver.find_element(:id, "profile_univ__city")
@@ -934,52 +1059,821 @@ state1Id.send_keys "Telangana"
 driver.find_element(:id, "profile_univ__zip").clear
 zip1Id = driver.find_element(:id, "profile_univ__zip")
 zip1Id.send_keys "1p"
-
-#*********************************** Parent details **************************#
+#pppppppp
 relation_select = driver.find_element(:name, "profile[parent][0][child_relationship]")
 scndclass1Id = driver.find_element(:id, "profile_parent_0_child_relationship")
 scndclass1Id.send_keys "f"
 #
 driver.find_element(:id, "profile_parent_0_fname").clear
-PFname1Id = driver.find_element(:id, "profile_parent_0_fname")
-PFname1Id.send_keys "praveen"
+PFname19Id = driver.find_element(:id, "profile_parent_0_fname")
+PFname19Id.send_keys "chinnu"
 #
 driver.find_element(:id, "profile_parent_0_lname").clear
-PLname1Id = driver.find_element(:id, "profile_parent_0_lname")
-PLname1Id.send_keys "reddy"
-
+PLname19Id = driver.find_element(:id, "profile_parent_0_lname")
+PLname19Id.send_keys "kumar"
 #parent phone number
 driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
-P1Phone12Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
-P1Phone12Id.send_keys "123456"
-
+P1Phone19Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
+P1Phone19Id.send_keys "5555555555"
 #parent phone no.type
-P12Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
-P1ph12Id = driver.find_element(:id, "profile_parent_0_phone1_type")
-P1ph12Id.send_keys "Mobile"
-
+P1Phonetype19_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P1ph19Id = driver.find_element(:id, "profile_parent_0_phone1_type")
+P1ph19Id.send_keys "Mobile"
 #parent phone number
 driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2").clear
-P2Phone1Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2")
-P2Phone1Id.send_keys "987654"
-
+P2Phone19Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2")
+P2Phone19Id.send_keys "5598997979"
 #parent phone no.type
-P22Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
-P2ph1Id = driver.find_element(:id, "profile_parent_0_phone2_type")
-P2ph1Id.send_keys "h"
-
+P2Phonetype9_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P2ph19Id = driver.find_element(:id, "profile_parent_0_phone2_type")
+P2ph19Id.send_keys "h"
 #parent phone number
 driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3").clear
-P3Phone1Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3")
-P3Phone1Id.send_keys "6543219"
-
+P3Phone19Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3")
+P3Phone19Id.send_keys "5546644646"
 #parent phone no.type
-P31Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
-P3ph1Id = driver.find_element(:id, "profile_parent_0_phone3_type")
-P3ph1Id.send_keys "w"
+P3Phonetype9_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P3ph19Id = driver.find_element(:id, "profile_parent_0_phone3_type")
+P3ph19Id.send_keys "w"
+###Agreement
+sleep(5)
+chkbox = driver.find_element(:name, "profile[seas][][terms]")
+classYes19Id = driver.find_element(:id, "profile_seas__terms")
+classYes19Id.click
+#
 sleep(2)
-Submit5 = driver.find_element(:name, "commit")
-Submit5.click
+driver.find_element(:name, "commit").click
+########Billing start
+driver.find_element(:id, "transaction_credit_card_number").clear
+CDnumber1Id = driver.find_element(:id, "transaction_credit_card_number")
+CDnumber1Id.send_keys "4111111111111111"
+#
+driver.find_element(:id, "transaction_credit_card_expiration_date").clear
+Expire1Id = driver.find_element(:id, "transaction_credit_card_expiration_date")
+Expire1Id.send_keys "09/27"
+#
+driver.find_element(:id, "transaction_credit_card_cvv").clear
+verification1Id = driver.find_element(:id, "transaction_credit_card_cvv")
+verification1Id.send_keys "123"
+#
+driver.find_element(:id, "transaction_billing_street_address").clear
+Baddr1Id = driver.find_element(:id, "transaction_billing_street_address")
+Baddr1Id.send_keys "hyd"
+#
+driver.find_element(:id, "transaction_billing_locality").clear
+Bcity1Id = driver.find_element(:id, "transaction_billing_locality")
+Bcity1Id.send_keys "hyderabad"
+#
+driver.find_element(:id, "transaction_billing_region").clear
+Bstate1Id = driver.find_element(:id, "transaction_billing_region")
+Bstate1Id.send_keys "telangana"
+#
+driver.find_element(:id, "transaction_billing_postal_code").clear
+Bzip1Id = driver.find_element(:id, "transaction_billing_postal_code")
+Bzip1Id.send_keys "500052"
+sleep(5)
+chkbox = driver.find_element(:name, "privacy_policy1")
+Ack1Id = driver.find_element(:id, "privacy_policy1")
+Ack1Id.click
+sleep(2)
+Submit31 = driver.find_element(:name, "commit")
+Submit31.click
+sleep(5)
+driver.find_element(:link, "Continue to the KidsLink dashboard").click
+
+#*******************************************************************#
+######################## Kid2 Form submition ########################
+#*******************************************************************# 
+sleep(10)
+puts "Kid 2 Form Submition..."
+driver.find_element(:xpath, "//div[contains(@id, 'childPhotograph')][2]").click
+sleep(5)
+driver.find_element(:link, "Peachtree Presbyterian Preschool").click
+sleep(5)
+driver.find_element(:link, "Application form").click
+#Prefered name
+sleep(2)
+driver.find_element(:id, "profile_univ__nickname").clear
+prename12Id = driver.find_element(:id, "profile_univ__nickname")
+prename12Id.send_keys "Kid2"
+#Legalname
+sleep(2)
+driver.find_element(:id, "profile_univ__fname").clear
+legalname12Id = driver.find_element(:id, "profile_univ__fname")
+legalname12Id.send_keys "chinnu"
+#lname
+sleep(2)
+driver.find_element(:id, "profile_univ__lname").clear
+lname12Id = driver.find_element(:id, "profile_univ__lname")
+lname12Id.send_keys "reddy"
+#
+sleep(2)
+relation_select = driver.find_element(:name, "profile[univ][][gender]")
+gender12Id = driver.find_element(:id, "profile_univ__gender")
+gender12Id.send_keys "Male"
+#
+driver.find_element(:id, "profile_univ__birthdate").clear
+Kbirth12Id = driver.find_element(:id, "profile_univ__birthdate")
+Kbirth12Id.send_keys "11/11/2013"
+#
+driver.find_element(:id, "profile_univ__food_allergies").clear
+food12Id = driver.find_element(:id, "profile_univ__food_allergies")
+food12Id.send_keys "we are good friends"
+#
+driver.find_element(:id, "profile_univ__medical_issues").clear
+medical12Id = driver.find_element(:id, "profile_univ__medical_issues")
+medical12Id.send_keys "all are very good"
+#
+driver.find_element(:id, "profile_univ__special_needs").clear
+needs12Id = driver.find_element(:id, "profile_univ__special_needs")
+needs12Id.send_keys "special needs "
+#
+driver.find_element(:id, "profile_univ__other_concerns").clear
+concerns12Id = driver.find_element(:id, "profile_univ__other_concerns")
+concerns12Id.send_keys "Other concerns "
+#Enrolment
+relation_select = driver.find_element(:name, "profile[seas][][family_currently_enrolled]")
+family12Id = driver.find_element(:id, "profile_seas__family_currently_enrolled")
+family12Id.send_keys "N"
+#
+relation_select = driver.find_element(:name, "profile[seas][][active_member_of_ppc]")
+active12Id = driver.find_element(:id, "profile_seas__active_member_of_ppc")
+active12Id.send_keys "Y"
+#
+driver.find_element(:id, "profile_seas__secondary_choice_of_class_days").clear
+secondary12Id = driver.find_element(:id, "profile_seas__secondary_choice_of_class_days")
+secondary12Id.send_keys "secondary choice of class days"
+#
+relation_select = driver.find_element(:name, "profile[seas][][are_you_enrolling_siblings]")
+siblings12Id = driver.find_element(:id, "profile_seas__are_you_enrolling_siblings")
+siblings12Id.send_keys "Y"
+#Address
+driver.find_element(:id, "profile_univ__address1").clear
+add112Id = driver.find_element(:id, "profile_univ__address1")
+add112Id.send_keys "Address  "
+#
+driver.find_element(:id, "profile_univ__address2").clear
+add212Id = driver.find_element(:id, "profile_univ__address2")
+add212Id.send_keys "Universal address 2"
+#
+driver.find_element(:id, "profile_univ__city").clear
+city12Id = driver.find_element(:id, "profile_univ__city")
+city12Id.send_keys "karimnagar"
+#
+driver.find_element(:id, "profile_univ__state").clear
+state12Id = driver.find_element(:id, "profile_univ__state")
+state12Id.send_keys "Telangana"
+#
+driver.find_element(:id, "profile_univ__zip").clear
+zip12Id = driver.find_element(:id, "profile_univ__zip")
+zip12Id.send_keys "1p"
+#*********************************** Parent details **************************#
+relation_select = driver.find_element(:name, "profile[parent][0][child_relationship]")
+scndclass12Id = driver.find_element(:id, "profile_parent_0_child_relationship")
+scndclass12Id.send_keys "f"
+#
+driver.find_element(:id, "profile_parent_0_fname").clear
+PFname12Id = driver.find_element(:id, "profile_parent_0_fname")
+PFname12Id.send_keys "praveen"
+#
+driver.find_element(:id, "profile_parent_0_lname").clear
+PLname12Id = driver.find_element(:id, "profile_parent_0_lname")
+PLname12Id.send_keys "reddy"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
+P1Phone122Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
+P1Phone122Id.send_keys "123456"
+#parent phone no.type
+P12Phonetype9_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P1ph1229Id = driver.find_element(:id, "profile_parent_0_phone1_type")
+P1ph1229Id.send_keys "Mobile"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2").clear
+P2Phone12Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2")
+P2Phone12Id.send_keys "987654"
+#parent phone no.type
+P22Phonetype9_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P2ph129Id = driver.find_element(:id, "profile_parent_0_phone2_type")
+P2ph129Id.send_keys "h"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3").clear
+P3Phone129Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3")
+P3Phone129Id.send_keys "6543219"
+#parent phone no.type
+P31Phonetype9_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P3ph129Id = driver.find_element(:id, "profile_parent_0_phone3_type")
+P3ph129Id.send_keys "w"
+sleep(2)
+driver.find_element(:name, "commit").click
+sleep(5)
+driver.find_element(:link, "Log Out").click
+
+#*******************************************************************#
+################ Peachtree Presbyterian Preschool ###################
+#*******************************************************************#
+sleep(3)
+driver.navigate.to "https://kl-json.herokuapp.com/home/index"
+sleep(2)
+puts "Selecting organization"
+driver.find_element(:xpath, "//*[contains(text(),'Apply the  Peachtree Presbyterian Preschool for season 2015-2016')]").click
+sleep(3)
+newId = driver.find_element(:id, "rwkExistingText")
+newId.click
+
+#********************************************************************#
+###################### Enter above Email #############################
+#********************************************************************#
+sleep(2)
+puts "Applying same Org for new kid..."
+#Typing the UserName
+Email3Id = driver.find_element(:id, "user_email")
+Email3Id.send_keys "qasravan547+a23@gmail.com"
+#Typing the Email-Id
+Password3Id = driver.find_element(:id, "user_password")
+Password3Id.send_keys "123456"
+#Submit Button
+sleep(2)
+driver.find_element(:name, "commit").click
+#
+sleep(2)
+relation_select = driver.find_element(:name, "profile_id")
+Childapply3Id = driver.find_element(:id, "profile_id")
+Childapply3Id.send_keys "**New child**"
+#
+sleep(5)
+driver.find_element(:name, "commit").click
+#Prefered name
+sleep(2)
+driver.find_element(:id, "profile_univ__nickname").clear
+prename3Id = driver.find_element(:id, "profile_univ__nickname")
+prename3Id.send_keys "kid 3"
+#Lname
+sleep(2)
+driver.find_element(:id, "profile_univ__fname").clear
+legalname3Id = driver.find_element(:id, "profile_univ__fname")
+legalname3Id.send_keys "shiva"
+#lname
+sleep(2)
+driver.find_element(:id, "profile_univ__lname").clear
+lname3Id = driver.find_element(:id, "profile_univ__lname")
+lname3Id.send_keys "reddy"
+#
+sleep(2)
+relation_select = driver.find_element(:name, "profile[univ][][gender]")
+gender3Id = driver.find_element(:id, "profile_univ__gender")
+gender3Id.send_keys "Male"
+#
+driver.find_element(:id, "profile_univ__birthdate").clear
+Kbirth3Id = driver.find_element(:id, "profile_univ__birthdate")
+Kbirth3Id.send_keys "11/11/2014"
+#
+driver.find_element(:id, "profile_univ__food_allergies").clear
+food3Id = driver.find_element(:id, "profile_univ__food_allergies")
+food3Id.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
+#
+driver.find_element(:id, "profile_univ__medical_issues").clear
+medical3Id = driver.find_element(:id, "profile_univ__medical_issues")
+medical3Id.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
+#
+driver.find_element(:id, "profile_univ__special_needs").clear
+needs3Id = driver.find_element(:id, "profile_univ__special_needs")
+needs3Id.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
+#
+driver.find_element(:id, "profile_univ__other_concerns").clear
+concerns3Id = driver.find_element(:id, "profile_univ__other_concerns")
+concerns3Id.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
+#enrolment
+relation_select = driver.find_element(:name, "profile[seas][][family_currently_enrolled]")
+family3Id = driver.find_element(:id, "profile_seas__family_currently_enrolled")
+family3Id.send_keys "Y"
+#
+relation_select = driver.find_element(:name, "profile[seas][][active_member_of_ppc]")
+active3Id = driver.find_element(:id, "profile_seas__active_member_of_ppc")
+active3Id.send_keys "Y"
+#
+relation_select = driver.find_element(:name, "profile[seas][][age_group_and_school_days]")
+schooldays3Id = driver.find_element(:id, "profile_seas__age_group_and_school_days")
+schooldays3Id.send_keys "3"
+#
+driver.find_element(:id, "profile_seas__secondary_choice_of_class_days").clear
+secondary3Id = driver.find_element(:id, "profile_seas__secondary_choice_of_class_days")
+secondary3Id.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
+#
+relation_select = driver.find_element(:name, "profile[seas][][are_you_enrolling_siblings]")
+siblings3Id = driver.find_element(:id, "profile_seas__are_you_enrolling_siblings")
+siblings3Id.send_keys "Y"
+#address
+driver.find_element(:id, "profile_univ__address1").clear
+add13Id = driver.find_element(:id, "profile_univ__address1")
+add13Id.send_keys "vgp kdsbf sdf sdf sdf "
+#
+driver.find_element(:id, "profile_univ__address2").clear
+add23Id = driver.find_element(:id, "profile_univ__address2")
+add23Id.send_keys "jksdfkjs fsdf dsdfgdg df gdf g fdg dfs dfgdfg dms"
+#
+driver.find_element(:id, "profile_univ__city").clear
+city3Id = driver.find_element(:id, "profile_univ__city")
+city3Id.send_keys "karimnagar"
+#
+driver.find_element(:id, "profile_univ__state").clear
+state3Id = driver.find_element(:id, "profile_univ__state")
+state3Id.send_keys "Telangana"
+#
+driver.find_element(:id, "profile_univ__zip").clear
+zip3Id = driver.find_element(:id, "profile_univ__zip")
+zip3Id.send_keys "1p"
+#pppppppp
+relation_select = driver.find_element(:name, "profile[parent][0][child_relationship]")
+scndclass3Id = driver.find_element(:id, "profile_parent_0_child_relationship")
+scndclass3Id.send_keys "f"
+#
+driver.find_element(:id, "profile_parent_0_fname").clear
+PFname3Id = driver.find_element(:id, "profile_parent_0_fname")
+PFname3Id.send_keys "ram"
+#
+driver.find_element(:id, "profile_parent_0_lname").clear
+PLname3Id = driver.find_element(:id, "profile_parent_0_lname")
+PLname3Id.send_keys "kumar"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
+P1Phone39Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
+P1Phone39Id.send_keys "5555555555"
+#parent phone no.type
+P13Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P1ph39Id = driver.find_element(:id, "profile_parent_0_phone1_type")
+P1ph39Id.send_keys "Mobile"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2").clear
+P2Phone3Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2")
+P2Phone3Id.send_keys "5598997979"
+#parent phone no.type
+P23Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P2ph3Id = driver.find_element(:id, "profile_parent_0_phone2_type")
+P2ph3Id.send_keys "h"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3").clear
+P3Phone3Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3")
+P3Phone3Id.send_keys "5546644646"
+#parent phone no.type
+P33Phonetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P3ph3Id = driver.find_element(:id, "profile_parent_0_phone3_type")
+P3ph3Id.send_keys "w"
+#Agreement
+sleep(5)
+chkbox = driver.find_element(:name, "profile[seas][][terms]")
+classYes3Id = driver.find_element(:id, "profile_seas__terms")
+classYes3Id.click
+#
+sleep(2)
+driver.find_element(:name, "commit").click
+#Billing start
+driver.find_element(:id, "transaction_credit_card_number").clear
+CDnumber3Id = driver.find_element(:id, "transaction_credit_card_number")
+CDnumber3Id.send_keys "4111111111111111"
+#
+driver.find_element(:id, "transaction_credit_card_expiration_date").clear
+Expire3Id = driver.find_element(:id, "transaction_credit_card_expiration_date")
+Expire3Id.send_keys "09/27"
+#
+driver.find_element(:id, "transaction_credit_card_cvv").clear
+verification3Id = driver.find_element(:id, "transaction_credit_card_cvv")
+verification3Id.send_keys "123"
+#
+driver.find_element(:id, "transaction_billing_street_address").clear
+Baddr3Id = driver.find_element(:id, "transaction_billing_street_address")
+Baddr3Id.send_keys "hyd"
+#
+driver.find_element(:id, "transaction_billing_locality").clear
+Bcity3Id = driver.find_element(:id, "transaction_billing_locality")
+Bcity3Id.send_keys "hyderabad"
+#
+driver.find_element(:id, "transaction_billing_region").clear
+Bstate3Id = driver.find_element(:id, "transaction_billing_region")
+Bstate3Id.send_keys "telangana"
+#
+driver.find_element(:id, "transaction_billing_postal_code").clear
+Bzip3Id = driver.find_element(:id, "transaction_billing_postal_code")
+Bzip3Id.send_keys "500052"
+sleep(5)
+chkbox = driver.find_element(:name, "privacy_policy1")
+Ack3Id = driver.find_element(:id, "privacy_policy1")
+Ack3Id.click
+sleep(2)
+driver.find_element(:name, "commit").click
+sleep(5)
+driver.find_element(:link, "Continue to the KidsLink dashboard").click
+
+#*******************************************************************#
+######################## Kid 3 Form submition #######################
+#*******************************************************************# 
+sleep(10)
+puts "Kid 3 Form Submition..."
+driver.find_element(:xpath, "//div[contains(@id, 'childPhotograph')][3]").click
+sleep(5)
+driver.find_element(:link, "Peachtree Presbyterian Preschool").click
+sleep(5)
+driver.find_element(:link, "Application form").click
+#Prefered name
+sleep(2)
+driver.find_element(:id, "profile_univ__nickname").clear
+prename14Id = driver.find_element(:id, "profile_univ__nickname")
+prename14Id.send_keys "kid3"
+#Legalname
+sleep(2)
+driver.find_element(:id, "profile_univ__fname").clear
+legalname14Id = driver.find_element(:id, "profile_univ__fname")
+legalname14Id.send_keys "bhannu"
+#lname
+sleep(2)
+driver.find_element(:id, "profile_univ__lname").clear
+lname14Id = driver.find_element(:id, "profile_univ__lname")
+lname14Id.send_keys "reddy"
+#
+sleep(2)
+relation_select = driver.find_element(:name, "profile[univ][][gender]")
+gender14Id = driver.find_element(:id, "profile_univ__gender")
+gender14Id.send_keys "Male"
+#
+driver.find_element(:id, "profile_univ__birthdate").clear
+Kbirth14Id = driver.find_element(:id, "profile_univ__birthdate")
+Kbirth14Id.send_keys "11/11/2014"
+#
+driver.find_element(:id, "profile_univ__food_allergies").clear
+food14Id = driver.find_element(:id, "profile_univ__food_allergies")
+food14Id.send_keys "we are good friends"
+#
+driver.find_element(:id, "profile_univ__medical_issues").clear
+medical14Id = driver.find_element(:id, "profile_univ__medical_issues")
+medical14Id.send_keys "all are very good"
+#
+driver.find_element(:id, "profile_univ__special_needs").clear
+needs14Id = driver.find_element(:id, "profile_univ__special_needs")
+needs14Id.send_keys "special needs "
+#
+driver.find_element(:id, "profile_univ__other_concerns").clear
+concerns14Id = driver.find_element(:id, "profile_univ__other_concerns")
+concerns14Id.send_keys "Other concerns "
+#Enrolment
+relation_select = driver.find_element(:name, "profile[seas][][family_currently_enrolled]")
+family14Id = driver.find_element(:id, "profile_seas__family_currently_enrolled")
+family14Id.send_keys "N"
+#
+relation_select = driver.find_element(:name, "profile[seas][][active_member_of_ppc]")
+active14Id = driver.find_element(:id, "profile_seas__active_member_of_ppc")
+active14Id.send_keys "Y"
+#
+driver.find_element(:id, "profile_seas__secondary_choice_of_class_days").clear
+secondary14Id = driver.find_element(:id, "profile_seas__secondary_choice_of_class_days")
+secondary14Id.send_keys "secondary choice of class days"
+#
+relation_select = driver.find_element(:name, "profile[seas][][are_you_enrolling_siblings]")
+siblings14Id = driver.find_element(:id, "profile_seas__are_you_enrolling_siblings")
+siblings14Id.send_keys "Y"
+#Address
+driver.find_element(:id, "profile_univ__address1").clear
+add114Id = driver.find_element(:id, "profile_univ__address1")
+add114Id.send_keys "Address  "
+#
+driver.find_element(:id, "profile_univ__address2").clear
+add214Id = driver.find_element(:id, "profile_univ__address2")
+add214Id.send_keys "Universal address 2"
+#
+driver.find_element(:id, "profile_univ__city").clear
+city14Id = driver.find_element(:id, "profile_univ__city")
+city14Id.send_keys "karimnagar"
+#
+driver.find_element(:id, "profile_univ__state").clear
+state14Id = driver.find_element(:id, "profile_univ__state")
+state14Id.send_keys "Telangana"
+#
+driver.find_element(:id, "profile_univ__zip").clear
+zip14Id = driver.find_element(:id, "profile_univ__zip")
+zip14Id.send_keys "1p"
+#*********************************** Parent details **************************#
+relation_select = driver.find_element(:name, "profile[parent][0][child_relationship]")
+scndclass14Id = driver.find_element(:id, "profile_parent_0_child_relationship")
+scndclass14Id.send_keys "f"
+#
+driver.find_element(:id, "profile_parent_0_fname").clear
+PFname14Id = driver.find_element(:id, "profile_parent_0_fname")
+PFname14Id.send_keys "prashanth"
+#
+driver.find_element(:id, "profile_parent_0_lname").clear
+PLname14Id = driver.find_element(:id, "profile_parent_0_lname")
+PLname14Id.send_keys "reddy"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
+P1Phone124Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
+P1Phone124Id.send_keys "1234545646"
+#parent phone no.type
+P12Phonetype6_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P1ph1249Id = driver.find_element(:id, "profile_parent_0_phone1_type")
+P1ph1249Id.send_keys "Mobile"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2").clear
+P2Phone149Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2")
+P2Phone149Id.send_keys "9876223254"
+#parent phone no.type
+P22Phonetype6_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P2ph149Id = driver.find_element(:id, "profile_parent_0_phone2_type")
+P2ph149Id.send_keys "h"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3").clear
+P3Phone149Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3")
+P3Phone149Id.send_keys "6543222219"
+#parent phone no.type
+P31Phonetype6_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P3ph149Id = driver.find_element(:id, "profile_parent_0_phone3_type")
+P3ph149Id.send_keys "w"
+sleep(2)
+driver.find_element(:name, "commit").click
+#***************** KidsLink Home *******************#
+sleep(3)
+driver.find_element(:link, "kidslink home").click
+sleep(5)
+driver.find_element(:link, "Log Out").click
+
+#*******************************************************************#
+###################### 1st Presbyterian Preschool ###################
+#*******************************************************************#
+sleep(10)
+#Loading the assertselenium URL
+driver.navigate.to "https://kl-json.herokuapp.com/home/index"
+puts "Applying '1st Presbyterian Preschool' for above existing Kid..."
+sleep(2)
+driver.find_element(:xpath, "//*[contains(text(),'Apply the  1st Presbyterian Preschool for season 2015-2016')]").click
+sleep(3)
+driver.find_element(:id, "rwkExistingText").click
+sleep(2)
+#Typing the UserName
+Email8Id = driver.find_element(:id, "user_email")
+Email8Id.send_keys "qasravan547+a23@gmail.com"
+#Typing the Email-Id
+Password8Id = driver.find_element(:id, "user_password")
+Password8Id.send_keys "123456"
+#Clicking on the Submit Button
+sleep(2)
+driver.find_element(:name, "commit").click
+#
+sleep(2)
+relation8_select = driver.find_element(:name, "profile_id")
+Childapply8Id = driver.find_element(:id, "profile_id")
+Childapply8Id.send_keys "s"
+#ChildapplyId.send_keys "**New child**"
+sleep(2)
+driver.find_element(:name, "commit").click
+#
+sleep(5)
+driver.find_element(:id, "profile_univ__fname").clear
+Fname8Id = driver.find_element(:id, "profile_univ__fname")
+Fname8Id.send_keys "raju"
+#
+sleep(5)
+driver.find_element(:id, "profile_univ__lname").clear
+lname8Id = driver.find_element(:id, "profile_univ__lname")
+lname8Id.send_keys "reddy"
+#
+sleep(2)
+relation8_select = driver.find_element(:name, "profile[univ][][gender]")
+gender8Id = driver.find_element(:id, "profile_univ__gender")
+gender8Id.send_keys "Male"
+#
+driver.find_element(:id, "profile_univ__birthdate").clear
+Kbirth8Id = driver.find_element(:id, "profile_univ__birthdate")
+Kbirth8Id.send_keys "11/11/2012"
+#
+relation8_select = driver.find_element(:name, "profile[seas][][age_group_and_school_days]")
+fstclass8Id = driver.find_element(:id, "profile_seas__age_group_and_school_days")
+fstclass8Id.send_keys "m/w"
+#
+relation8_select = driver.find_element(:name, "profile[seas][][secondary_choice_of_class_days]")
+scndclass8Id = driver.find_element(:id, "profile_seas__secondary_choice_of_class_days")
+scndclass8Id.send_keys "T"
+#
+driver.find_element(:id, "profile_univ__address1").clear
+add18Id = driver.find_element(:id, "profile_univ__address1")
+add18Id.send_keys "this is very imp"
+#
+driver.find_element(:id, "profile_univ__address2").clear
+add28Id = driver.find_element(:id, "profile_univ__address2")
+add28Id.send_keys "jksdfkjs fsdf dsdfgdg df gdf g fdg dfs dfgdfg dms"
+#
+driver.find_element(:id, "profile_univ__city").clear
+city8Id = driver.find_element(:id, "profile_univ__city")
+city8Id.send_keys "karimnagar"
+#
+driver.find_element(:id, "profile_univ__state").clear
+state8Id = driver.find_element(:id, "profile_univ__state")
+state8Id.send_keys "Telangana"
+#
+driver.find_element(:id, "profile_univ__zip").clear
+zip8Id = driver.find_element(:id, "profile_univ__zip")
+zip8Id.send_keys "1p"
+#
+relation8_select = driver.find_element(:name, "profile[parent][0][child_relationship]")
+scndclass8Id = driver.find_element(:id, "profile_parent_0_child_relationship")
+scndclass8Id.send_keys "f"
+#
+driver.find_element(:id, "profile_univ__zip").clear
+zip8Id = driver.find_element(:id, "profile_univ__zip")
+zip8Id.send_keys "1p"
+#
+driver.find_element(:id, "profile_parent_0_fname").clear
+PFname8Id = driver.find_element(:id, "profile_parent_0_fname")
+PFname8Id.send_keys "man"
+#
+driver.find_element(:id, "profile_parent_0_lname").clear
+PLname8Id = driver.find_element(:id, "profile_parent_0_lname")
+PLname8Id.send_keys "super"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
+P1Phone8Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
+P1Phone8Id.send_keys "55555555555"
+#parent phone no.type
+P1Phonetype8_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P1ph8Id = driver.find_element(:id, "profile_parent_0_phone1_type")
+P1ph8Id.send_keys "Mobile"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2").clear
+P2Phone8Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2")
+P2Phone8Id.send_keys "5598997979877979"
+#parent phone no.type
+P2Phonetype8_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P2ph8Id = driver.find_element(:id, "profile_parent_0_phone2_type")
+P2ph8Id.send_keys "h"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3").clear
+P3Phone8Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3")
+P3Phone8Id.send_keys "5546644646464"
+#parent phone no.type
+P3Phonetype8_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P3ph8Id = driver.find_element(:id, "profile_parent_0_phone3_type")
+P3ph8Id.send_keys "w"
+#
+sleep(5)
+chkbox = driver.find_element(:name, "profile[seas][][class_listing_auth_yes]")
+classYes8Id = driver.find_element(:id, "profile_seas__class_listing_auth_yes")
+classYes8Id.click
+#
+sleep(5)
+chkbox = driver.find_element(:name, "profile[seas][][class_listing_auth_no]")
+classNo8Id = driver.find_element(:id, "profile_seas__class_listing_auth_no")
+classNo8Id.click
+#
+sleep(5)
+chkbox = driver.find_element(:name, "profile[seas][][org_listing_auth_yes]")
+schoolYes8Id = driver.find_element(:id, "profile_seas__org_listing_auth_yes")
+schoolYes8Id.click
+#
+sleep(5)
+chkbox = driver.find_element(:name, "profile[seas][][org_listing_auth_no]")
+schoolNo8Id = driver.find_element(:id, "profile_seas__org_listing_auth_no")
+schoolNo8Id.click
+#
+media_select = driver.find_element(:name, "profile[seas][][media_release_perm]")
+media8Id = driver.find_element(:id, "profile_seas__media_release_perm")
+media8Id.send_keys "y"
+#
+sleep(5)
+chkbox = driver.find_element(:name, "profile[seas][][terms]")
+sign8Id = driver.find_element(:id, "profile_seas__terms")
+sign8Id.click
+#
+sleep(2)
+driver.find_element(:name, "commit").click
+#Billing start
+driver.find_element(:id, "transaction_credit_card_number").clear
+CDnumber8Id = driver.find_element(:id, "transaction_credit_card_number")
+CDnumber8Id.send_keys "4111111111111111"
+#
+driver.find_element(:id, "transaction_credit_card_expiration_date").clear
+Expire8Id = driver.find_element(:id, "transaction_credit_card_expiration_date")
+Expire8Id.send_keys "09/27"
+#
+driver.find_element(:id, "transaction_credit_card_cvv").clear
+verification8Id = driver.find_element(:id, "transaction_credit_card_cvv")
+verification8Id.send_keys "123"
+#
+driver.find_element(:id, "transaction_billing_street_address").clear
+Baddr8Id = driver.find_element(:id, "transaction_billing_street_address")
+Baddr8Id.send_keys "hyd"
+#
+driver.find_element(:id, "transaction_billing_locality").clear
+Bcity8Id = driver.find_element(:id, "transaction_billing_locality")
+Bcity8Id.send_keys "hyderabad"
+#
+driver.find_element(:id, "transaction_billing_region").clear
+Bstate8Id = driver.find_element(:id, "transaction_billing_region")
+Bstate8Id.send_keys "telangana"
+#
+driver.find_element(:id, "transaction_billing_postal_code").clear
+Bzip8Id = driver.find_element(:id, "transaction_billing_postal_code")
+Bzip8Id.send_keys "500052"
+sleep(5)
+chkbox = driver.find_element(:name, "privacy_policy1")
+Ack8Id = driver.find_element(:id, "privacy_policy1")
+Ack8Id.click
+sleep(2)
+driver.find_element(:name, "commit").click
+sleep(5)
+driver.find_element(:link, "Continue to the KidsLink dashboard").click()
+
+#*******************************************************************#
+###################### Kid 1 new Form submition #####################
+#*******************************************************************# 
+sleep(10)
+puts "Kid 1 1st Presbyterian form submition..."
+driver.find_element(:xpath, "//div[contains(@id, 'childPhotograph')]").click
+sleep(5)
+driver.find_element(:link, "1st Presbyterian Preschool").click
+sleep(6)
+driver.find_element(:link, "Application Form").click
+#
+sleep(5)
+driver.find_element(:id, "profile_univ__fname").clear
+Fname7Id = driver.find_element(:id, "profile_univ__fname")
+Fname7Id.send_keys "raju"
+#
+sleep(5)
+driver.find_element(:id, "profile_univ__lname").clear
+lname8Id = driver.find_element(:id, "profile_univ__lname")
+lname8Id.send_keys "reddy"
+#
+sleep(2)
+relation8_select = driver.find_element(:name, "profile[univ][][gender]")
+gender8Id = driver.find_element(:id, "profile_univ__gender")
+gender8Id.send_keys "Male"
+#
+driver.find_element(:id, "profile_univ__birthdate").clear
+Kbirth7Id = driver.find_element(:id, "profile_univ__birthdate")
+Kbirth7Id.send_keys "11/11/2012"
+#
+driver.find_element(:id, "profile_univ__address1").clear
+add18Id = driver.find_element(:id, "profile_univ__address1")
+add18Id.send_keys "this is very imp"
+#
+driver.find_element(:id, "profile_univ__address2").clear
+add28Id = driver.find_element(:id, "profile_univ__address2")
+add28Id.send_keys "HIiiiiiiiiiiiiiiiiiiiiiiiiii"
+#
+driver.find_element(:id, "profile_univ__city").clear
+city8Id = driver.find_element(:id, "profile_univ__city")
+city8Id.send_keys "karimnagar"
+#
+driver.find_element(:id, "profile_univ__state").clear
+state8Id = driver.find_element(:id, "profile_univ__state")
+state8Id.send_keys "Telangana"
+#
+driver.find_element(:id, "profile_univ__zip").clear
+zip8Id = driver.find_element(:id, "profile_univ__zip")
+zip8Id.send_keys "1p"
+#
+relation8_select = driver.find_element(:name, "profile[parent][0][child_relationship]")
+scndclass8Id = driver.find_element(:id, "profile_parent_0_child_relationship")
+scndclass8Id.send_keys "f"
+#
+driver.find_element(:id, "profile_univ__zip").clear
+zip8Id = driver.find_element(:id, "profile_univ__zip")
+zip8Id.send_keys "1p"
+#
+driver.find_element(:id, "profile_parent_0_fname").clear
+PFname88Id = driver.find_element(:id, "profile_parent_0_fname")
+PFname88Id.send_keys "suresh"
+#
+driver.find_element(:id, "profile_parent_0_lname").clear
+PLname88Id = driver.find_element(:id, "profile_parent_0_lname")
+PLname88Id.send_keys "reddy"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
+P1Phone88Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
+P1Phone88Id.send_keys "55555555555"
+#parent phone no.type
+P1Phonetype88_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P1ph88Id = driver.find_element(:id, "profile_parent_0_phone1_type")
+P1ph88Id.send_keys "Mobile"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2").clear
+P2Phone88Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2")
+P2Phone88Id.send_keys "5598997979877979"
+#parent phone no.type
+P2Phonetype88_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P2ph88Id = driver.find_element(:id, "profile_parent_0_phone2_type")
+P2ph88Id.send_keys "h"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3").clear
+P3Phone88Id = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3")
+P3Phone88Id.send_keys "5546644646464"
+#parent phone no.type
+P3Phonetype88_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P3ph88Id = driver.find_element(:id, "profile_parent_0_phone3_type")
+P3ph88Id.send_keys "w"
+sleep(2)
+media1_select = driver.find_element(:name, "profile[seas][][media_release_perm]")
+media88Id = driver.find_element(:id, "profile_seas__media_release_perm")
+media88Id.send_keys "y"
+#
+sleep(2)
+driver.find_element(:name, "commit").click
 
 #***************** KidsLink Home *******************#
 sleep(3)
@@ -987,13 +1881,10 @@ driver.find_element(:link, "kidslink home").click
 
 
 
- 
-######################################################### REFRESH
- #driver.navigate().refresh();
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
