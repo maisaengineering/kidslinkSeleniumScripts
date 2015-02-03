@@ -36,6 +36,237 @@ genderId = driver.find_element(:id, "profile_univ__gender")
 genderId.send_keys "Male"
 #
 driver.find_element(:id, "profile_univ__birthdate").clear
+KbId = driver.find_element(:id, "profile_univ__birthdate")
+KbId.send_keys "11/11/2011"
+#
+driver.find_element(:id, "profile_univ__food_allergies").clear
+foodId = driver.find_element(:id, "profile_univ__food_allergies")
+foodId.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
+#
+driver.find_element(:id, "profile_univ__medical_issues").clear
+medicalId = driver.find_element(:id, "profile_univ__medical_issues")
+medicalId.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
+#
+driver.find_element(:id, "profile_univ__special_needs").clear
+needsId = driver.find_element(:id, "profile_univ__special_needs")
+needsId.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
+#
+driver.find_element(:id, "profile_univ__other_concerns").clear
+concernsId = driver.find_element(:id, "profile_univ__other_concerns")
+concernsId.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
+#Enrolment
+relation_select = driver.find_element(:name, "profile[seas][][family_currently_enrolled]")
+familyId = driver.find_element(:id, "profile_seas__family_currently_enrolled")
+familyId.send_keys "N"
+#
+relation_select = driver.find_element(:name, "profile[seas][][active_member_of_ppc]")
+activeId = driver.find_element(:id, "profile_seas__active_member_of_ppc")
+activeId.send_keys "Y"
+#
+relation_select = driver.find_element(:name, "profile[seas][][age_group_and_school_days]")
+schooldaysId = driver.find_element(:id, "profile_seas__age_group_and_school_days")
+schooldaysId.send_keys "3"
+#
+driver.find_element(:id, "profile_seas__secondary_choice_of_class_days").clear
+secondaryId = driver.find_element(:id, "profile_seas__secondary_choice_of_class_days")
+secondaryId.send_keys "gfsadf sdf sdfdsf dsfs f sf sf sdf dsf s dfsdfsdf sf dsfsdfsdf"
+#
+relation_select = driver.find_element(:name, "profile[seas][][are_you_enrolling_siblings]")
+siblingsId = driver.find_element(:id, "profile_seas__are_you_enrolling_siblings")
+siblingsId.send_keys "Y"
+#Address
+driver.find_element(:id, "profile_univ__address1").clear
+add1Id = driver.find_element(:id, "profile_univ__address1")
+add1Id.send_keys "vgp kdsbf sdf sdf sdf "
+#
+driver.find_element(:id, "profile_univ__address2").clear
+add2Id = driver.find_element(:id, "profile_univ__address2")
+add2Id.send_keys "jksdfkjs fsdf dsdfgdg df gdf g fdg dfs dfgdfg dms"
+#
+driver.find_element(:id, "profile_univ__city").clear
+cityId = driver.find_element(:id, "profile_univ__city")
+cityId.send_keys "karimnagar"
+#
+driver.find_element(:id, "profile_univ__state").clear
+stateId = driver.find_element(:id, "profile_univ__state")
+stateId.send_keys "Telangana"
+#
+driver.find_element(:id, "profile_univ__zip").clear
+zipId = driver.find_element(:id, "profile_univ__zip")
+zipId.send_keys "1p"
+#*********************************** Parent details **************************#
+puts "Entering parent details..."
+relation_select = driver.find_element(:name, "profile[parent][0][child_relationship]")
+scndclassId = driver.find_element(:id, "profile_parent_0_child_relationship")
+scndclassId.send_keys "f"
+#
+driver.find_element(:id, "profile_parent_0_fname").clear
+PFnamId = driver.find_element(:id, "profile_parent_0_fname")
+PFnamId.send_keys "suresh"
+#
+driver.find_element(:id, "profile_parent_0_lname").clear
+PLnamId = driver.find_element(:id, "profile_parent_0_lname")
+PLnamId.send_keys "reddy"
+
+#************************** Enter existing email address **********************#
+puts "Enter existing email..."
+driver.find_element(:id, "profile_parent_0_email").clear
+emailId = driver.find_element(:id, "profile_parent_0_email")
+emailId.send_keys "qasravan547+a2@gmail.com"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
+P1PhonId = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
+P1PhonId.send_keys "5555555555"
+#parent phone no.type
+P1Phonetyp_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P1phoId = driver.find_element(:id, "profile_parent_0_phone1_type")
+P1phoId.send_keys "Mobile"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2").clear
+P2PhoId = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone2")
+P2PhoId.send_keys "5598997979"
+#parent phone no.type
+P2Phonetpe_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P2pId = driver.find_element(:id, "profile_parent_0_phone2_type")
+P2pId.send_keys "h"
+#parent phone number
+driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3").clear
+P3PhoeId = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone3")
+P3PhoeId.send_keys "5546644646"
+#parent phone no.type
+P3Phetype_select = driver.find_element(:name, "profile[parent][0][phone1][type]")
+P3phnId = driver.find_element(:id, "profile_parent_0_phone3_type")
+P3phnId.send_keys "w"
+#Agreement
+sleep(5)
+chkbox = driver.find_element(:name, "profile[seas][][terms]")
+classYesId = driver.find_element(:id, "profile_seas__terms")
+classYesId.click
+#
+sleep(2)
+driver.find_element(:name, "commit").click
+#
+sleep(5)
+puts "KidsLink Membership..."
+select = driver.find_element(:name, "parent_profile_id")
+IamId = driver.find_element(:id, "parent_profile_id")
+IamId.send_keys "Father"
+#password
+sleep(5)
+driver.find_element(:class, "standardForm").click
+sleep(3)
+puts "Password selection..."
+passId = driver.find_element(:name, "user[password]")
+passId.click
+sleep(2)
+passId = driver.find_element(:id, "user_password")
+passId.send_keys "123456"
+#re enter pass
+RepassId = driver.find_element(:id, "user_password_confirmation")
+RepassId.send_keys "123456"
+sleep(2)
+driver.find_element(:name, "commit").click
+puts "Email address already exists...."
+sleep(5)
+driver.navigate().back()
+sleep(5)
+driver.navigate().back()
+
+#**************************************************************************************************************************#
+#################################### Enter Email and Replace all the places-Using (Ctrl+F)##################################
+#**************************************************************************************************************************#
+sleep(5)
+puts "Enter new email address..."
+driver.find_element(:id, "profile_parent_0_email").clear
+emailId = driver.find_element(:id, "profile_parent_0_email")
+emailId.send_keys "qasravan547+a34@gmail.com"
+sleep(2)
+driver.find_element(:name, "commit").click
+#
+sleep(5)
+puts "KidsLink Membership..."
+select = driver.find_element(:name, "parent_profile_id")
+Iam1Id = driver.find_element(:id, "parent_profile_id")
+Iam1Id.send_keys "Father"
+#password
+sleep(5)
+driver.find_element(:class, "standardForm").click
+sleep(3)
+puts "Password selection..."
+driver.find_element(:name, "user[password]").click
+sleep(2)
+pass1Id = driver.find_element(:id, "user_password")
+pass1Id.send_keys "123456"
+#re enter pass
+Repass1Id = driver.find_element(:id, "user_password_confirmation")
+Repass1Id.send_keys "123456"
+sleep(2)
+puts "Account created without billing state..."
+driver.find_element(:name, "commit").click
+sleep(10)
+driver.find_element(:css, "img[alt='Logo']").click
+LoginButton = driver.find_element(:id, "user_email")
+LoginButton.send_keys "qasravan547+a34@gmail.com"
+#Typing the Email-Id
+EmailId = driver.find_element(:id, "user_password")
+EmailId.send_keys "123456"
+#Clicking on the Submit Button
+driver.find_element(:name, "commit").click
+sleep(5)
+driver.find_element(:id, "childPhotograph").click
+puts "Showing empty Organization...."
+sleep(10)
+driver.find_element(:link, "Log Out").click
+sleep(3)
+driver.navigate.to "https://kl-json.herokuapp.com/home/index"
+sleep(2)
+puts "Selecting organization for above created kid..."
+driver.find_element(:xpath, "//*[contains(text(),'Apply the  Peachtree Presbyterian Preschool for season 2015-2016')]").click
+sleep(3)
+newId = driver.find_element(:id, "rwkExistingText")
+newId.click
+#********************************************************************#
+###################### Enter above Email #############################
+#********************************************************************#
+sleep(2)
+#Typing the UserName
+puts "Existing user applying Org for Existing Kid..."
+EmaiId = driver.find_element(:id, "user_email")
+EmaiId.send_keys "qasravan547+a34@gmail.com"
+#Typing the Email-Id
+Passw1Id = driver.find_element(:id, "user_password")
+Passw1Id.send_keys "123456"
+#Clicking on the Submit Button
+sleep(2)
+driver.find_element(:name, "commit").click
+sleep(2)
+re_select = driver.find_element(:name, "profile_id")
+ChiId = driver.find_element(:id, "profile_id")
+ChiId.send_keys "r"
+sleep(2)
+driver.find_element(:name, "commit").click
+#Prefered name
+sleep(2)
+driver.find_element(:id, "profile_univ__nickname").clear
+prenameId = driver.find_element(:id, "profile_univ__nickname")
+prenameId.send_keys "kid1"
+#Legalname
+sleep(2)
+driver.find_element(:id, "profile_univ__fname").clear
+legalnameId = driver.find_element(:id, "profile_univ__fname")
+legalnameId.send_keys "raju"
+#lname
+sleep(2)
+driver.find_element(:id, "profile_univ__lname").clear
+lnameId = driver.find_element(:id, "profile_univ__lname")
+lnameId.send_keys "reddy"
+#
+sleep(2)
+relation_select = driver.find_element(:name, "profile[univ][][gender]")
+genderId = driver.find_element(:id, "profile_univ__gender")
+genderId.send_keys "Male"
+#
+driver.find_element(:id, "profile_univ__birthdate").clear
 KbirthId = driver.find_element(:id, "profile_univ__birthdate")
 KbirthId.send_keys "11/11/2011"
 #
@@ -108,13 +339,6 @@ driver.find_element(:id, "profile_parent_0_lname").clear
 PLnameId = driver.find_element(:id, "profile_parent_0_lname")
 PLnameId.send_keys "reddy"
 
-#**************************************************************************************************************************#
-#################################### Enter Email and Replace all the places-Using (Ctrl+F)##################################
-#**************************************************************************************************************************#
-puts "Enter existing email..."
-driver.find_element(:id, "profile_parent_0_email").clear
-emailId = driver.find_element(:id, "profile_parent_0_email")
-emailId.send_keys "qasravan547+a23@gmail.com"
 #parent phone number
 driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1").clear
 P1PhoneId = driver.find_element(:id, "profile_parent_attributes___phone_numbers__contactphone1")
@@ -146,31 +370,8 @@ classYesId = driver.find_element(:id, "profile_seas__terms")
 classYesId.click
 #
 sleep(2)
-Submit2 = driver.find_element(:name, "commit")
-Submit2.click
-#
-sleep(5)
-puts "KidsLink Membership..."
-select = driver.find_element(:name, "parent_profile_id")
-IamId = driver.find_element(:id, "parent_profile_id")
-IamId.send_keys "Father"
-#password
-sleep(5)
-driver.find_element(:class, "standardForm").click
-sleep(5)
-puts "Password selection..."
-passId = driver.find_element(:name, "user[password]")
-passId.click
-sleep(5)
-passId = driver.find_element(:id, "user_password")
-passId.send_keys "123456"
-#re enter pass
-sleep(5)
-RepassId = driver.find_element(:id, "user_password_confirmation")
-RepassId.send_keys "123456"
-sleep(2)
-Submit3 = driver.find_element(:name, "commit")
-Submit3.click
+driver.find_element(:name, "commit").click
+
 #Billing start
 puts "Billing Address..."
 driver.find_element(:id, "transaction_credit_card_number").clear
@@ -205,11 +406,9 @@ chkbox = driver.find_element(:name, "privacy_policy1")
 AckId = driver.find_element(:id, "privacy_policy1")
 AckId.click
 sleep(2)
-Submit4 = driver.find_element(:name, "commit")
-Submit4.click
+driver.find_element(:name, "commit").click
 sleep(10)
-Success = driver.find_element(:link, "Continue to the KidsLink dashboard")
-Success.click
+driver.find_element(:link, "Continue to the KidsLink dashboard").click
 
 #*******************************************************************#
 ######################## Kid 1 Form submition #######################
@@ -384,14 +583,14 @@ puts "Upload Document..."
 driver.find_element(:id, "5217606b59a2a5065e00005b").click
 
 #**************** Set the path using software AutoIt and SciTE script editor ****************#
-f = IO.popen("D:/automation_master_copy/web/Original/Upload/document.exe")
+f = IO.popen("D:/automation_master_copy/web/Upload/document.exe")
 puts f.readlines
 
 /#Multiple document upload at a time 
 sleep(10)
 fileId = driver.find_element(:id, "accept_and_capture")
 fileId = driver.find_element(:link, "Accept and capture page 2").click/
-#f = IO.popen("D:/automation_master_copy/web/Original/Upload/document.exe")
+#f = IO.popen("D:/automation_master_copy/web/Upload/document.exe")
 #puts f.readlines
 
 sleep(10)
@@ -512,7 +711,7 @@ sleep(5)
 driver.switch_to.alert.accept
 
 #*******************************************************************#
-####################### Click on childPhotograph ####################
+############################ Child profile edit #####################
 #*******************************************************************#
 sleep(10)
 kidprofileId = driver.find_element(:id, "childPhotograph")
@@ -596,7 +795,7 @@ DoctorId.send_keys "maisa"
 #doctor phone
 driver.find_element(:id, "kid_doctor_phone").clear
 DoctorPId = driver.find_element(:id, "kid_doctor_phone")
-DoctorPId.send_keys "09090000990009"
+DoctorPId.send_keys "0909000091"
 
 #doctor email
 driver.find_element(:id, "kid_doctor_email").clear
@@ -611,7 +810,7 @@ DentistId.send_keys "pride"
 #dentist phone
 driver.find_element(:id, "kid_dentist_phone").clear
 DentistPId = driver.find_element(:id, "kid_dentist_phone")
-DentistPId.send_keys "088888888888"
+DentistPId.send_keys "0888888888"
 
 #dentist Email
 driver.find_element(:id, "kid_dentist_email").clear
@@ -796,7 +995,7 @@ puts "Select photo..."
 driver.find_element(:link, "change ID photo").click
 
 #**************** Set the path using software AutoIt and SciTE script editor ****************#
-f = IO.popen("D:/automation_master_copy/web/Original/Upload/childphoto.exe")
+f = IO.popen("D:/automation_master_copy/web/Upload/childphoto.exe")
 puts f.readlines
 sleep(5)
 driver.find_element(:xpath, "//span[contains(@id, 'klLogo')]").click
@@ -852,7 +1051,7 @@ puts "Select photos in your system..."
 driver.find_element(:link, "Select photo").click
 
 #**************** Set the path using software AutoIt and SciTE script editor ****************#
-f = IO.popen("D:/automation_master_copy/web/Original/Upload/milestone.exe")
+f = IO.popen("D:/automation_master_copy/web/Upload/milestone.exe")
 puts f.readlines
 sleep(10)
 driver.find_element(:link, "Save milestone").click
@@ -902,7 +1101,7 @@ puts "Select photos in your system..."
 driver.find_element(:link, "Select photo").click
 
 #**************** Set the path using software AutoIt and SciTE script editor ****************#
-f = IO.popen("D:/automation_master_copy/web/Original/Upload/editmilestone.exe")
+f = IO.popen("D:/automation_master_copy/web/Upload/editmilestone.exe")
 puts f.readlines
 sleep(10)
 driver.find_element(:link, "Save milestone").click
@@ -963,7 +1162,7 @@ sleep(2)
 #Typing the UserName
 puts "Existing user applying Org for Existing Kid..."
 Email1Id = driver.find_element(:id, "user_email")
-Email1Id.send_keys "qasravan547+a23@gmail.com"
+Email1Id.send_keys "qasravan547+a34@gmail.com"
 #Typing the Email-Id
 Password1Id = driver.find_element(:id, "user_password")
 Password1Id.send_keys "123456"
@@ -1287,7 +1486,7 @@ sleep(2)
 puts "Applying same Org for new kid..."
 #Typing the UserName
 Email3Id = driver.find_element(:id, "user_email")
-Email3Id.send_keys "qasravan547+a23@gmail.com"
+Email3Id.send_keys "qasravan547+a34@gmail.com"
 #Typing the Email-Id
 Password3Id = driver.find_element(:id, "user_password")
 Password3Id.send_keys "123456"
@@ -1607,7 +1806,7 @@ driver.find_element(:id, "rwkExistingText").click
 sleep(2)
 #Typing the UserName
 Email8Id = driver.find_element(:id, "user_email")
-Email8Id.send_keys "qasravan547+a23@gmail.com"
+Email8Id.send_keys "qasravan547+a34@gmail.com"
 #Typing the Email-Id
 Password8Id = driver.find_element(:id, "user_password")
 Password8Id.send_keys "123456"
@@ -1879,7 +2078,8 @@ driver.find_element(:name, "commit").click
 sleep(3)
 driver.find_element(:link, "kidslink home").click
 
-
+sleep(3)
+driver.find_element(:link, "Log Out").click
 
 
 
