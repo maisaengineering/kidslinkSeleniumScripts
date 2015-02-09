@@ -179,7 +179,7 @@ sleep(5)
 puts "Enter new email address..."
 driver.find_element(:id, "profile_parent_0_email").clear
 emailId = driver.find_element(:id, "profile_parent_0_email")
-emailId.send_keys "qasravan547+a34@gmail.com"
+emailId.send_keys "qasravan547+a44@gmail.com"
 sleep(2)
 driver.find_element(:name, "commit").click
 #
@@ -206,7 +206,7 @@ driver.find_element(:name, "commit").click
 sleep(10)
 driver.find_element(:css, "img[alt='Logo']").click
 LoginButton = driver.find_element(:id, "user_email")
-LoginButton.send_keys "qasravan547+a34@gmail.com"
+LoginButton.send_keys "qasravan547+a44@gmail.com"
 #Typing the Email-Id
 EmailId = driver.find_element(:id, "user_password")
 EmailId.send_keys "123456"
@@ -232,7 +232,7 @@ sleep(2)
 #Typing the UserName
 puts "Existing user applying Org for Existing Kid..."
 EmaiId = driver.find_element(:id, "user_email")
-EmaiId.send_keys "qasravan547+a34@gmail.com"
+EmaiId.send_keys "qasravan547+a44@gmail.com"
 #Typing the Email-Id
 Passw1Id = driver.find_element(:id, "user_password")
 Passw1Id.send_keys "123456"
@@ -1162,7 +1162,7 @@ sleep(2)
 #Typing the UserName
 puts "Existing user applying Org for Existing Kid..."
 Email1Id = driver.find_element(:id, "user_email")
-Email1Id.send_keys "qasravan547+a34@gmail.com"
+Email1Id.send_keys "qasravan547+a44@gmail.com"
 #Typing the Email-Id
 Password1Id = driver.find_element(:id, "user_password")
 Password1Id.send_keys "123456"
@@ -1486,15 +1486,22 @@ sleep(2)
 puts "Applying same Org for new kid..."
 #Typing the UserName
 Email3Id = driver.find_element(:id, "user_email")
-Email3Id.send_keys "qasravan547+a34@gmail.com"
+Email3Id.send_keys "qasravan547+a44@gmail.com"
 #Typing the Email-Id
 Password3Id = driver.find_element(:id, "user_password")
 Password3Id.send_keys "123456"
 #Submit Button
 sleep(2)
 driver.find_element(:name, "commit").click
-#
+puts "Enter wrong value(Negative test)...."
 sleep(2)
+relation_select = driver.find_element(:name, "profile_id")
+ChildappId = driver.find_element(:id, "profile_id")
+ChildappId.send_keys "si"
+sleep(5)
+driver.find_element(:name, "commit").click
+#
+sleep(5)
 relation_select = driver.find_element(:name, "profile_id")
 Childapply3Id = driver.find_element(:id, "profile_id")
 Childapply3Id.send_keys "**New child**"
@@ -1806,7 +1813,7 @@ driver.find_element(:id, "rwkExistingText").click
 sleep(2)
 #Typing the UserName
 Email8Id = driver.find_element(:id, "user_email")
-Email8Id.send_keys "qasravan547+a34@gmail.com"
+Email8Id.send_keys "qasravan547+a44@gmail.com"
 #Typing the Email-Id
 Password8Id = driver.find_element(:id, "user_password")
 Password8Id.send_keys "123456"
@@ -2078,8 +2085,79 @@ driver.find_element(:name, "commit").click
 sleep(3)
 driver.find_element(:link, "kidslink home").click
 
-sleep(3)
-driver.find_element(:link, "Log Out").click
+#**************************** Change Password ******************************#
+puts "Change Password...."
+#************ Enter wrong details in current and new password **************#
+sleep 5.0
+driver.find_element(:link, "Preferences").click
+puts "Enter wrong password details ..."
+sleep 3.0
+driver.find_element(:id, "user_current_password").send_keys "123457"
+sleep 0.5
+driver.find_element(:id, "user_password").send_keys "654322"
+sleep 0.5
+driver.find_element(:id, "user_password_confirmation").send_keys "654321"
+sleep(5)
+driver.find_element(:class, "saveButton").click
+
+#********************** New password fields did not match *********************#
+puts "Enter wrong details new password fields..."
+sleep 5.0
+driver.find_element(:id, "user_current_password").clear
+driver.find_element(:id, "user_current_password").send_keys "123456"
+sleep(5)
+driver.find_element(:class, "saveButton").click
+
+#*********************** Enter all currect details *************************#
+puts "Enter all currect details..."
+sleep 5.0
+driver.find_element(:id, "user_password").clear
+driver.find_element(:id, "user_password").send_keys "654321"
+sleep 0.5
+driver.find_element(:id, "user_password_confirmation").clear
+driver.find_element(:id, "user_password_confirmation").send_keys "654321"
+sleep(5)
+driver.find_element(:class, "saveButton").click
+
+#*********************** 2nd time change password ************************#
+puts "2nd time changed password..."
+sleep 5.0
+driver.find_element(:link, "Preferences").click
+sleep 0.5
+driver.find_element(:id, "user_current_password").send_keys "654321"
+sleep 0.5
+driver.find_element(:id, "user_password").send_keys "123456"
+sleep 0.5
+driver.find_element(:id, "user_password_confirmation").send_keys "123456"
+sleep(5)
+driver.find_element(:class, "saveButton").click
+
+
+
+
+
+
+
+
+/sleep(5)
+driver.find_element(:link, "Log Out").click/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
