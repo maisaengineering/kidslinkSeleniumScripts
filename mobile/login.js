@@ -1,6 +1,6 @@
 function login() {
     var email = "ios15@test.com";
-    var password = "111111";
+    var password = "123456";
     UIALogger.logStart("Logging in")
     window.textFields()[0].tap();
     window.textFields()[0].setValue(email);
@@ -11,9 +11,16 @@ function login() {
     window.secureTextFields()[0].setValue(password);
     target.delay(2);
     window.buttons()[0].tap();
+    target.delay(2);
     
-    target.delay(5);
-    target.captureScreenWithName("moment");
+    UIATarget.onAlert = function onAlert(alert) {
+    
+        return false;
+    }
+        //UIALogger.logMessage("Alert with title '" + title + "' encountered.");
+        // return false to use the default handler
+    target.delay(8);
+    target.captureScreenWithName("home wall");
     target.delay(2);
     UIALogger.logPass("Logged in Successfully");
  }

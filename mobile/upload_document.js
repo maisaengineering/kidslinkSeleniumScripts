@@ -34,7 +34,7 @@ window.collectionViews()[0].cells()[imgtapselect].tap();
 
 //tapping on save to vault button;
 target.delay(5);
-window.buttons()[0].tap();
+window.buttons()[2].tap();
 
 //tapping on document belongs to user;
 target.delay(6);

@@ -1,14 +1,16 @@
 function login_first() { 
-    var email = "ios15@test.com";
-    var password = "111111"; 
+    var email = "ios2@test.com";
+    var password = "123456"; 
  
 UIALogger.logStart("Started Logged in from scratch")
-target.delay(5);
-window.buttons()[0].tap();
 
+target.delay(5);
+window.scrollViews()[0].textFields()[0].tap();
+window.scrollViews()[0].textFields()[0].setValue(email);
+    
 target.delay(2);
-window.textFields()[0].tap();
-window.textFields()[0].setValue(email);
+window.scrollViews()[0].buttons()[0].tap();
+
 
 target.delay(2);
 target.frontMostApp().mainWindow().secureTextFields()[0].tap();
@@ -27,3 +29,5 @@ UIALogger.logPass("Logged In successfully")
     }
  */
 }
+ // Alert detected. Expressions for handling alerts should be moved into the UIATarget.onAlert function definition.
+ 

@@ -2,9 +2,9 @@ function addcomment() {
 
 UIALogger.logStart("adding comment");
 
-window.tableViews()[0].cells()[0].buttons()[0].tap(); 
+window.tableViews()[0].cells()[0].buttons()[1].tap(); 
     
-//target.delay(2);
+target.delay(2);
 window.textViews()[0].setValue("first automate comment");
 
 target.delay(2);

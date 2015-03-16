@@ -2,7 +2,7 @@ function saysomething() {
 var saysometing = "test1";
     
 UIALogger.logStart("posting say something");
-target.delay(6);
+target.delay(8);
 window.buttons()[1].tap(); 
 target.delay(2);
 window.scrollViews()[0].textViews()[0].tap();

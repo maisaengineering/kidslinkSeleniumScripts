@@ -8,7 +8,7 @@ target.delay(5);
 
  target.delay(2); 
  window.tableViews()[0].cells()[5].tap();
- target.delay(2); 
+ target.delay(4); 
 UIALogger.logPass("Loggged out success");    
 
 }

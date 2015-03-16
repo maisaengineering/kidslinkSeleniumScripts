@@ -1,5 +1,5 @@
 function registration_login() {
-var email = "ssadashiv@maisasolutions.com";
+var email = "svsc@test.com.com";
 var phonenumber = "9999999911";
 var invitename = "MAISA";
 var firstname = "sadashiv";

@@ -1,8 +1,10 @@
 
 function loginandlogout () {
-  //dynlogin();
+    //dynlogin();
     login();
     //addchild();
   logout()
+  //window.buttons()["Login Back"].tap();
+    
 
 }

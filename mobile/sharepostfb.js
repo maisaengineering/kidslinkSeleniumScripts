@@ -2,14 +2,16 @@
 function sharepostfb() {
 
 UIALogger.logStart("sharing post to fb");
-target.delay(1);
-app.tabBar().buttons()[1].tap();
+//target.delay(1);
+//app.tabBar().buttons()[1].tap();
 
-target.delay(1);
-window.tableViews()[0].cells()[4].tap();
+//target.delay(1);
+//window.tableViews()[0].cells()[4].tap();
 
+target.logElementTree();
+    
 target.delay(2);
-window.tableViews()[0].cells()[0].buttons()["white arrow down icon"].tap();
+window.tableViews()[0].cells()[0].buttons()[2].tap();
 
 if(selectdevice == "iphone4") {
 	 app.actionSheet().buttons()[0].tap();
