@@ -1,10 +1,11 @@
 function sanity() { 
-    var email = "sravaan21@test.com";
+    var email = "sravaan27@test.com";
     var password = "123456"; 
-    var phonenumber = "9876543221";
+    var phonenumber = "9876543227";
     var firstname = "sravan";
     var lastname = "reddy";
     var zipcode = "29401";
+    
     //add moment variables
     var momentdetails = "Automation testing"; 
     var imgtapselect = 2;           
@@ -15,25 +16,66 @@ function sanity() {
     var month = "September";
     var year = "2007";
     var imgtapselect1 = 3;
-    var skip = 71;
+    var skip = 73;
     
     //parent dashboard added milestone
-    var myrownumber = 5;
-    // var imgtapselect = 1; 
+    var myrownumber = 1;
+    var imgtapselect2 = 1; 
     var milestonename = "Added milestone in parent dashboard..."
     //var month = "September";
     //var date = "21";
     //var year = "2007";
     var milestonetext = "This is very beautiful..."
+   
     //comment...
     var comment = "added first automate comment";
     
     //Edit post...
-    var imgtapselect2 = 2;
+    var imgtapselect3 = 2;
     var month1 = "May";
     var date1 = "10";
     var year1 = "2000";
     var details = "Post edited milestone to moment..."
+    
+    // Edit parent details.....
+    var myrownumber1 = 1;
+    var firstname2 = "sravan";
+    var lastname2 = "QA";
+    var imgtapselect4 = 1; 
+        
+    //Edit child details....
+    var myrownumber2 = 0;
+    var prefname = "chinnu";
+    var firstname1 = "maisa";
+    var lastname1 = "QA";
+    var date2 = "22";
+    var month2 = "March";
+    var year2 = "2013";
+    var imgtapselect5 = 2; 
+    
+    //Add document .....
+    var docname = "test document added in kasfj flkdj dflkf sdfdsdlkjf jkddsflds ";
+    var docdescription = "child's document jdsfh sdjfh sdkjf sdf sdmfsjdf sdfks s";
+    var year3 = "2012";
+    var month3 = "October";
+    var date3 = "21";
+    var expyear = "2015";
+    var expmonth = "March";
+    var expdate = "18";
+    var imgtapselect6 = 4;
+    
+    //Change password .............................
+    var currentpassword = "123456";
+    var newpassword = "111111";
+    var cnewpassword = newpassword;
+    
+    //Edit document details.......
+    var docname1 = "maisa solutions.............";
+    var docdescription1 = "adsjkl sad sd sa d assd as d sda asd aas d dsa";
+    var month4 = "May";
+    var date4 = "11";
+    var year4 = "2000";
+    
 
     
         target.delay(5);
@@ -233,7 +275,7 @@ function sanity() {
     target.delay(2);
     //selectiong pic
     window.scrollViews()[0].buttons()[0].tap();
-    target.delay(1);
+    target.delay(2);
     if(selectdevice == "iphone4") {
         app.actionSheet().buttons()[1].tap();
     }
@@ -246,7 +288,7 @@ function sanity() {
     app.navigationBar().rightButton().tap();
     
     
-    target.delay(4);   
+    target.delay(6);   
     //entering kid name
     window.scrollViews()[0].textFields()[0].tap();
     window.scrollViews()[0].textFields()[0].setValue(addkidname);
@@ -329,7 +371,7 @@ function sanity() {
     }
     
     target.delay(4);
-    window.collectionViews()[0].cells()[imgtapselect].tap();
+    window.collectionViews()[0].cells()[imgtapselect2].tap();
     
     target.delay(5);
     app.navigationBar().rightButton().tap();
@@ -492,7 +534,7 @@ function sanity() {
     }
     
     target.delay(4);
-    window.collectionViews()[0].cells()[imgtapselect2].tap();
+    window.collectionViews()[0].cells()[imgtapselect3].tap();
     
     target.delay(5);
     app.navigationBar().rightButton().tap();
@@ -539,7 +581,7 @@ function sanity() {
     
     target.delay(2);
     window.scrollViews()[0].buttons()["post icon"].tap();
-    UIALogger.logPass("added milestone");    
+    UIALogger.logPass("adding moment details");    
     
     UIALogger.logStart("capturing milestone screenshot");
     target.delay(10);
@@ -547,6 +589,604 @@ function sanity() {
     target.captureScreenWithName("edited milestone");
     
     UIALogger.logPass("captured milestone");
+  
+    
+    
+    // Edit parent details.......................................
+    UIALogger.logStart("edit profile");
+    //selecting myfamily tabbar    
+    app.tabBar().buttons()[1].tap();
+    
+    //selecting user 
+    target.delay(2);
+    window.tableViews()[0].cells()[myrownumber1].tap();
+    
+    //selecting profile details 
+    target.delay(2);    
+    window.buttons()["profileDetails"].tap();
+    
+    //clicking edit button
+    target.delay(4);
+    window.buttons()["btnProfileEdit"].tap();
+    
+    //changing names
+    target.delay(2);
+    window.scrollViews()[1].textFields()[1].tap();
+    window.scrollViews()[1].textFields()[1].setValue(firstname2);
+    target.delay(2);
+    window.scrollViews()[1].textFields()[3].tap();
+    window.scrollViews()[1].textFields()[3].setValue(lastname2);
+    
+    //save and update
+    target.delay(2);
+    window.buttons()["btnEditSave"].tap();
+    
+    //edit picture
+    //window.buttons()["btnKidProfileClose"].tap();
+    target.delay(6);
+    app.windows()[0].buttons()["btnProfileEditPhoto"].tap();
+    
+    //choose photo options
+    target.delay(4);
+    
+    if(selectdevice == "iphone4") {
+        app.actionSheet().buttons()[1].tap();
+    }
+    
+    else {
+        app.actionSheet().collectionViews()[0].cells()[1].tap();
+    }
+    
+    //select photo
+    target.delay(6);
+    window.collectionViews()[0].cells()[imgtapselect].tap();
+    //done photo edit button 
+    target.delay(10);
+    window.navigationBar().buttons()["Done"].tap();
+    UIALogger.logPass("edited profile");
+    
+    UIALogger.logStart("capturing user profile");
+    //go to view profile details screenshot
+    target.delay(2);    
+    window.buttons()["profileDetails"].tap();
+    target.delay(2); 
+    //capture a screenshot with a specified name
+    target.captureScreenWithName("editedprofile");
+    
+    target.delay(2); 
+    window.buttons()["btnKidProfileClose"].tap();
+    target.delay(2); 
+    
+    //more test code
+    app.tabBar().buttons()[0].tap(); 
+    UIALogger.logPass("captured user profile and went to homepage");
+    
+       
+    //Edit child details....
+    
+    target.delay(2); 
+    UIALogger.logStart("edit profile");
+    //selecting myfamily tabbar    
+    app.tabBar().buttons()[1].tap();
+    
+    //selecting user 
+    target.delay(2);
+    window.tableViews()[0].cells()[myrownumber2].tap();
+    
+    //selecting profile details 
+    target.delay(2);    
+    window.buttons()["profileDetails"].tap();
+    
+    //clicking edit button
+    target.delay(4);
+    window.buttons()["btnProfileEdit"].tap();
+    
+    //changing names
+    target.delay(2);
+    window.scrollViews()[1].textFields()[0].tap();
+    window.scrollViews()[1].textFields()[0].setValue(prefname);
+    target.delay(2);
+    window.scrollViews()[1].textFields()[1].tap();
+    window.scrollViews()[1].textFields()[1].setValue(firstname1);
+    target.delay(2);
+    window.scrollViews()[1].textFields()[3].tap();
+    window.scrollViews()[1].textFields()[3].setValue(lastname1);
+    
+    //date of birth...
+    target.delay(4);
+    window.scrollViews()[1].buttons()[1].tap();
+    
+    target.delay(4);
+    window.scrollViews()[1].buttons()[1].tap();
+    
+    target.delay(6);
+    window.pickers()[0].wheels()[0].selectValue(date2);
+    window.pickers()[0].wheels()[1].selectValue(month2);
+    window.pickers()[0].wheels()[2].selectValue(year2);
+    app.toolbar().buttons()["Done"].tap();
+    
+    //select gender...
+    target.delay(2); 
+    window.scrollViews()[1].buttons()[4].tap();
+    
+    //Other details....
+    target.delay(2); 
+    window.scrollViews()[1].textViews()[0].tap();
+    window.scrollViews()[1].textViews()[0].setValue("Am a good girl");
+    
+    
+    //Doctor name....
+    target.delay(2); 
+    window.scrollViews()[1].textFields()[4].scrollToVisible();
+    window.scrollViews()[1].textFields()[4].tap();
+    window.scrollViews()[1].textFields()[4].setValue("greene");
+    
+    //Doctor Email....
+    target.delay(2); 
+    window.scrollViews()[1].textFields()[5].scrollToVisible();
+    window.scrollViews()[1].textFields()[5].tap();
+    window.scrollViews()[1].textFields()[5].setValue("Doctor@test.com");
+    
+    //Doctor phone....
+    target.delay(2); 
+    window.scrollViews()[1].textFields()[6].scrollToVisible();
+    window.scrollViews()[1].textFields()[6].tap();
+    window.scrollViews()[1].textFields()[6].setValue("6768686768");
+    
+    //Dentist name....
+    target.delay(2); 
+    window.scrollViews()[1].textFields()[7].scrollToVisible();
+    window.scrollViews()[1].textFields()[7].tap();
+    window.scrollViews()[1].textFields()[7].setValue("robert");
+    
+    //Dentist Email....
+    target.delay(2); 
+    window.scrollViews()[1].textFields()[8].scrollToVisible();
+    window.scrollViews()[1].textFields()[8].tap();
+    window.scrollViews()[1].textFields()[8].setValue("dentist@test.com");
+    
+    //Dentist phone....
+    target.delay(2); 
+    window.scrollViews()[1].textFields()[9].scrollToVisible();
+    window.scrollViews()[1].textFields()[9].tap();
+    window.scrollViews()[1].textFields()[9].setValue("3748578398");
+    
+    //Medicines....
+    target.delay(2); 
+    window.scrollViews()[1].textViews()[1].tap();
+    window.scrollViews()[1].textViews()[1].setValue("medicines....");
+    
+    //Food Allergies....
+    target.delay(2); 
+    window.scrollViews()[1].textViews()[2].scrollToVisible();
+    window.scrollViews()[1].textViews()[2].tap();
+    window.scrollViews()[1].textViews()[2].setValue("Food Allergies....");
+    
+    
+    //Drug Allergies....
+    target.delay(2); 
+    window.scrollViews()[1].textViews()[3].scrollToVisible();
+    window.scrollViews()[1].textViews()[3].tap();
+    window.scrollViews()[1].textViews()[3].setValue("Drug Allergies....");
+    
+    //Medical Issues....
+    target.delay(2); 
+    window.scrollViews()[1].textViews()[4].scrollToVisible();
+    window.scrollViews()[1].textViews()[4].tap();
+    window.scrollViews()[1].textViews()[4].setValue("Medical Issues....");
+    
+    //Special Needs....
+    target.delay(2); 
+    window.scrollViews()[1].textViews()[5].scrollToVisible();
+    window.scrollViews()[1].textViews()[5].tap();
+    window.scrollViews()[1].textViews()[5].setValue("Special Needs....");
+    
+    //Other Health/Wellness....
+    target.delay(2); 
+    window.scrollViews()[1].textViews()[6].scrollToVisible();
+    window.scrollViews()[1].textViews()[6].tap();
+    window.scrollViews()[1].textViews()[6].setValue("Other Health/Wellness....");
+    
+    //save and update
+    target.delay(2);
+    window.buttons()["btnEditSave"].tap();
+    
+    //edit picture
+    //window.buttons()["btnKidProfileClose"].tap();
+    target.delay(6);
+    app.windows()[0].buttons()["btnProfileEditPhoto"].tap();
+    
+    //choose photo options
+    target.delay(4);
+    
+    if(selectdevice == "iphone4") {
+        app.actionSheet().buttons()[1].tap();
+    }
+    
+    else {
+        app.actionSheet().collectionViews()[0].cells()[1].tap();
+    }
+    
+    //select photo
+    target.delay(6);
+    window.collectionViews()[0].cells()[imgtapselect5].tap();
+    //done photo edit button 
+    target.delay(10);
+    window.navigationBar().buttons()["Done"].tap();
+    UIALogger.logPass("edited profile");
+    
+    UIALogger.logStart("capturing user profile");
+    //go to view profile details screenshot
+    target.delay(2);    
+    window.buttons()["profileDetails"].tap();
+    target.delay(2); 
+    //capture a screenshot with a specified name
+    target.captureScreenWithName("editedprofile");
+    
+    target.delay(2); 
+    window.buttons()["btnKidProfileClose"].tap();
+    target.delay(2); 
+    
+    //more test code
+    app.tabBar().buttons()[0].tap(); 
+    UIALogger.logPass("captured user profile and went to homepage");
+    
+    
+    //Document adding......................................
+    
+    target.delay(2);
+    UIALogger.logStart("adding document");
+    //clicking vault tab;
+    app.tabBar().buttons()[2].tap();
+    
+    //Document tour
+    //target.delay(2);
+    //window.buttons()[0].tap();
+    //target.delay(2);
+    //window.buttons()[0].tap();
+    target.delay(2);
+    window.buttons()[0].tap();
+    target.delay(2);
+    window.buttons()[0].tap();
+    
+    
+    
+    //add document button;
+    target.delay(5);
+    window.buttons()[1].tap();
+    
+    //selecting photo option;
+    target.delay(2);    
+    if(selectdevice == "iphone4") {
+        app.actionSheet().buttons()[1].tap();
+    }
+    else {
+        app.actionSheet().collectionViews()[0].cells()[1].tap();
+    }
+    
+    //selecting photo from thumbs;
+    target.delay(2);
+    window.collectionViews()[0].cells()[imgtapselect6].tap();
+    
+    //rotate doc anticlockwise
+    target.delay(3);
+    window.buttons()[1].tap();
+    
+    //rotate doc clockwise
+    target.delay(3);
+    window.buttons()[2].tap();
+    
+    //tried to adding second image
+    target.delay(3);
+    window.buttons()[0].tap();
+    
+    target.delay(3);
+    //selecting photo option;
+    if(selectdevice == "iphone4") {
+        app.actionSheet().buttons()[1].tap();
+    }
+    else {
+        app.actionSheet().collectionViews()[0].cells()[1].tap();
+    }
+    
+    //selecting photo from thumbs;
+    target.delay(2);
+    window.collectionViews()[0].cells()[imgtapselect6].tap();
+    
+    //rotate doc anticlockwise
+    target.delay(3);
+    window.buttons()[1].tap();
+    
+    //tapping on save to vault button;
+    target.delay(5);
+    window.buttons()[3].tap();
+    
+    //tapping on document belongs to user;
+    target.delay(6);
+    window.tableViews()[0].cells()[0].tap();
+    
+    //selecting document type;
+    target.delay(5);
+    window.tableViews()[0].cells()[2].tap();
+    
+    //selecting sub document type;    
+    target.delay(5);
+    window.tableViews()[0].cells()[0].tap();
+    
+    target.delay(5);
+    window.tableViews()[0].cells()[1].tap();
+    UIALogger.logPass("added document");
+    
+    
+    UIALogger.logStart("filling document details");
+    
+    //filling document name; 
+    target.delay(5);
+    window.scrollViews()[0].textFields()[0].tap();
+    target.delay(2);
+    window.scrollViews()[0].textFields()[0].setValue(docname);
+    
+    
+    //filling doc discription; 
+    target.delay(2);
+    window.scrollViews()[0].textViews()[0].tap();
+    target.delay(5);
+    window.scrollViews()[0].textViews()[0].setValue(docdescription);
+    target.delay(2);
+    app.windows()[1].buttons()["Done"].tap();
+    
+    
+    //picking from date;    
+    target.delay(2);
+    window.scrollViews()[0].buttons()[0].tap();
+    target.delay(2);
+    //window.pickers()[0].wheels()[0].selectValue(month3);
+    window.pickers()[0].wheels()[0].selectValue(date3);
+    window.pickers()[0].wheels()[1].selectValue(month3);
+    window.pickers()[0].wheels()[2].selectValue(year3);
+    app.toolbar().buttons()["Done"].tap();
+    
+    
+    //picking to date; 
+    target.delay(2);
+    window.scrollViews()[0].buttons()[1].tap();
+    target.delay(2);
+    //window.pickers()[0].wheels()[0].selectValue(expmonth);
+    window.pickers()[0].wheels()[0].selectValue(expdate);
+    window.pickers()[0].wheels()[1].selectValue(expmonth);
+    window.pickers()[0].wheels()[2].selectValue(expyear);
+    app.toolbar().buttons()["Done"].tap();
+    
+    //saving document;     
+    target.delay(3);
+    window.navigationBar().buttons()["Save"].tap();
+    UIALogger.logPass("saved document");
+    
+    UIALogger.logStart("capturing document list");
+    //capturing list; 
+    target.delay(5);
+    target.captureScreenWithName("documents list");
+    
+    target.delay(6);   
+    app.tabBar().buttons()[0].tap();
+    UIALogger.logPass("captured screenshot and went to home page");   
+    
+    
+    
+    //Change password .............................
+    target.delay(2); 
+    UIALogger.logStart("Changing Password")
+    app.tabBar().buttons()[4].tap();
+    target.delay(4);
+    window.tableViews()[0].cells()[1].tap();
+    
+    //entering current password
+    target.delay(2);
+    window.scrollViews()[0].secureTextFields()[0].tap();
+    window.scrollViews()[0].secureTextFields()[0].setValue(currentpassword);
+    
+    //entering new password
+    target.delay(2);
+    window.scrollViews()[0].secureTextFields()[1].tap();
+    window.scrollViews()[0].secureTextFields()[1].setValue(newpassword);
+    
+    //entering confirm new password
+    target.delay(2);
+    window.scrollViews()[0].secureTextFields()[2].tap();
+    window.scrollViews()[0].secureTextFields()[2].setValue(cnewpassword);
+    
+    //tapping submit
+    target.delay(2);
+    window.scrollViews()[0].buttons()[0].tap();
+    
+    //go to homepage
+    target.delay(4);
+    app.tabBar().buttons()[0].tap();
+    UIALogger.logPass("Successfully changed password");
+    target.delay(2)
+    
+    logout();
+    
+    //login with new password
+    UIALogger.logStart("a with new password")
+    window.textFields()[0].tap();
+    window.textFields()[0].setValue(email);
+    
+    target.delay(1);
+    target.frontMostApp().mainWindow().secureTextFields()[0].tap();
+    //target.tap({x:18, y:342});
+    window.secureTextFields()[0].setValue(newpassword);
+    target.delay(1);
+    window.buttons()[0].tap();
+    UIALogger.logPass("Logged in successfully");
+    
+    
+    
+    // View and change document type...................................
+    target.delay(2);
+    UIALogger.logStart("view and change document list");
+    //clicking vault tab;
+    app.tabBar().buttons()[2].tap();
+    
+    //clicking document menu;
+    target.delay(5);
+    window.tableViews()[0].cells()[2].tap();
+    
+    //clicking document sub list;
+    target.delay(5);
+    window.tableViews()[0].cells()[0].tap();
+    
+    //selecting users list;
+    target.delay(5);
+    window.tableViews()[0].cells()[0].tap();
+    
+    //target.delay(5);
+    //window.tableViews()[0].cells()[0].tap();
+    
+    
+    //clicking on options
+    target.delay(10);
+    target.logElementTree();
+    app.windows()[0].buttons()["btnProfileOptions"].tap();
+    
+    // selecting change document type
+    
+    target.delay(2);
+    if(selectdevice == "iphone4") { 
+        app.actionSheet().buttons()[0].tap();
+    }
+    else {
+        app.actionSheet().collectionViews()[0].cells()[0].tap();
+    }
+    
+    // selecting change document main menu
+    target.delay(5);
+    window.tableViews()[0].cells()[1].tap();
+    
+    // selecting change document sub menu
+    target.delay(5);
+    window.tableViews()[0].cells()[0].tap();
+    
+    // closing document
+    target.delay(10);
+    
+    window.buttons()[2].tap();
+    UIALogger.logPass("changed document list");
+    UIALogger.logStart("capturing document list");
+    //capturing list; 
+    target.delay(5);
+    target.captureScreenWithName("see document changed list");
+    
+    target.delay(2);   
+    app.tabBar().buttons()[0].tap();
+    UIALogger.logPass("captured screenshot and went to home page");
+    
+    
+    //Document switch person..........................
+    target.delay(2);   
+    app.tabBar().buttons()[2].tap();
+    
+    //clicking document menu;
+    target.delay(5);
+    window.tableViews()[0].cells()[1].tap();
+    
+    //clicking document sub list;
+    target.delay(5);
+    window.tableViews()[0].cells()[0].tap();
+    
+    //clicking on options
+    target.delay(10);
+    target.logElementTree();
+    app.windows()[0].buttons()["btnProfileOptions"].tap();
+    
+    // selecting change document type
+    
+    target.delay(2);
+    if(selectdevice == "iphone4") { 
+        app.actionSheet().buttons()[0].tap();
+    }
+    else {
+        app.actionSheet().collectionViews()[0].cells()[1].tap();
+    }
+    
+    // selecting change document main menu
+    target.delay(5);
+    window.tableViews()[0].cells()[1].tap();
+    
+    //Edit document details......................................
+    
+    //clicking on options
+    target.delay(10);
+    target.logElementTree();
+    app.windows()[0].buttons()["btnProfileOptions"].tap();
+    
+    // selecting change document type
+    
+    target.delay(2);
+    if(selectdevice == "iphone4") { 
+        app.actionSheet().buttons()[0].tap();
+    }
+    else {
+        app.actionSheet().collectionViews()[0].cells()[2].tap();
+    }
+    
+    //filling document name; 
+    target.delay(5);
+    window.scrollViews()[0].textFields()[0].tap();
+    target.delay(2);
+    window.scrollViews()[0].textFields()[0].setValue(docname1);
+    
+    
+    //filling doc discription; 
+    target.delay(2);
+    window.scrollViews()[0].textViews()[0].tap();
+    target.delay(5);
+    window.scrollViews()[0].textViews()[0].setValue(docdescription1);
+    target.delay(2);
+    app.windows()[1].buttons()["Done"].tap();
+    
+    
+    //picking from date;    
+    target.delay(2);
+    window.scrollViews()[0].buttons()[0].tap();
+    target.delay(2);
+    //window.pickers()[0].wheels()[0].selectValue(month4);
+    window.pickers()[0].wheels()[0].selectValue(date4);
+    window.pickers()[0].wheels()[1].selectValue(month4);
+    window.pickers()[0].wheels()[2].selectValue(year4);
+    app.toolbar().buttons()["Done"].tap();
+    
+    
+    //picking to date; 
+    target.delay(2);
+    window.scrollViews()[0].buttons()[1].tap();
+    target.delay(2);
+    //window.pickers()[0].wheels()[0].selectValue(expmonth);
+    window.pickers()[0].wheels()[0].selectValue(expdate);
+    window.pickers()[0].wheels()[1].selectValue(expmonth);
+    window.pickers()[0].wheels()[2].selectValue(expyear);
+    app.toolbar().buttons()["Done"].tap();
+    
+    //saving document;     
+    target.delay(3);
+    window.navigationBar().buttons()["Save"].tap();
+    
+    
+    UIALogger.logStart("capturing document list");
+    //capturing list; 
+    target.delay(5);
+    target.captureScreenWithName("documents list");
+    
+    
+    target.delay(10);
+    window.buttons()[2].tap();
+    app.tabBar().buttons()[2].tap();
+    
+
+    
+    
+    
+    
     
 }
 
