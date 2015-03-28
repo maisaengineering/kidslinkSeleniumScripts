@@ -1,8 +1,8 @@
 function sanity() { 
-  
-    var email = "sravaan61@test.com";
+    
+    var email = "sravaan70@test.com";
     var password = "123456"; 
-    var phonenumber = "9876543261";
+    var phonenumber = "9876543270";
     var firstname = "sravan";
     var lastname = "reddy";
     var zipcode = "29401";
@@ -67,7 +67,7 @@ function sanity() {
     var expdate = "18";
     var imgtapselect6 = 4;
     
-    //Edit document details.......
+    //Edit document details
     var docname1 = "maisa solutions.............";
     var docdescription1 = "adsjkl sad sd sa d assd as d sda asd aas d dsa";
     var month4 = "May";
@@ -77,7 +77,7 @@ function sanity() {
     var date5 = "10";
     var year5 = "2014";
     
-    //Change password .............................
+    //Change password 
     var currentpassword = "123456";
     var newpassword = "111111";
     var cnewpassword = newpassword;    
@@ -85,105 +85,112 @@ function sanity() {
     //Add say something
     var saysometing = "added say somthing post in streams...";
     
+    //Parent invitation
+    var clnumber = 1;  
+    
+    //Friend invitation flow
+    var contactnumber = 11;
+    
+    //Existing user email
+    var email1 = "Qamaisa@gmail.com";
     
     
     
-    /********************************************************************************************/
     
-        UIALogger.logStart("In-app flow........");
     
-        target.delay(5);
-        window.scrollViews()[0].textFields()[0].tap();
-        window.scrollViews()[0].textFields()[0].setValue(email);
+    UIALogger.logStart("In-app flow........");
+    target.delay(5);
+    window.scrollViews()[0].textFields()[0].tap();
+    window.scrollViews()[0].textFields()[0].setValue(email);
     
-        target.delay(2);
-        window.scrollViews()[0].buttons()[0].tap();
-
-        //entering user fields
-        target.delay(8);
-        window.scrollViews()[0].webViews()[0].textFields()[0].tap();
-        
-        target.delay(2);
-        app.keyboard().typeString(firstname);
-        
-        target.delay(4);
-        window.scrollViews()[0].webViews()[0].textFields()[1].tap();
-        
-        target.delay(2);
-        app.keyboard().typeString(lastname);
-        
-        window.scrollViews()[0].webViews()[0].elements()[11].tap();
-        target.delay(5);
-        target.frontMostApp().windows()[1].pickers()[0].wheels()[0].tap();
-        target.frontMostApp().windows()[1].toolbar().buttons()["Done"].tap();
-
-        target.delay(4);
-        window.scrollViews()[0].webViews()[0].textFields()[3].tap();
-        
-        target.delay(2);
-        app.keyboard().typeString(zipcode);
-        
-        window.scrollViews()[0].webViews()[0].textFields()[5].tap();
-        
-        target.delay(2);
-        app.keyboard().typeString(phonenumber);
-        
-        target.delay(4);
-        window.scrollViews()[0].webViews()[0].textFields()[7].tap();
-        
-        target.delay(2);
-        app.keyboard().typeString(phonenumber);
-        
-        target.delay(4);
-        window.scrollViews()[0].webViews()[0].secureTextFields()[0].tap();
-        
-        target.delay(2);
-        app.keyboard().typeString(password);
-        
-        target.delay(4);
-        window.scrollViews()[0].webViews()[0].secureTextFields()[1].tap();
-        
-        target.delay(2);
-        app.keyboard().typeString(password);
-        
-        target.delay(4);
-        window.scrollViews()[0].webViews()[0].switches()[0].tap();
-        window.scrollViews()[0].webViews()[0].switches()[0].setValue[1];
-        
-        target.delay(6);
-        target.captureScreenWithName("successfull register");
+    target.delay(2);
+    window.scrollViews()[0].buttons()[0].tap();
     
-        target.delay(4);
-        window.scrollViews()[0].webViews()[0].buttons()[0].tap();
-        
-        target.delay(2);
-        UIALogger.logPass("Redeemption flow completed successfully");
-        
-            
+    //entering user fields
+    target.delay(8);
+    window.scrollViews()[0].webViews()[0].textFields()[0].tap();
+    
+    target.delay(2);
+    app.keyboard().typeString(firstname);
+    
+    target.delay(4);
+    window.scrollViews()[0].webViews()[0].textFields()[1].tap();
+    
+    target.delay(2);
+    app.keyboard().typeString(lastname);
+    
+    window.scrollViews()[0].webViews()[0].elements()[11].tap();
+    target.delay(5);
+    target.frontMostApp().windows()[1].pickers()[0].wheels()[0].tap();
+    target.frontMostApp().windows()[1].toolbar().buttons()["Done"].tap();
+    
+    target.delay(4);
+    window.scrollViews()[0].webViews()[0].textFields()[3].tap();
+    
+    target.delay(2);
+    app.keyboard().typeString(zipcode);
+    
+    window.scrollViews()[0].webViews()[0].textFields()[5].tap();
+    
+    target.delay(2);
+    app.keyboard().typeString(phonenumber);
+    
+    target.delay(4);
+    window.scrollViews()[0].webViews()[0].textFields()[7].tap();
+    
+    target.delay(2);
+    app.keyboard().typeString(phonenumber);
+    
+    target.delay(4);
+    window.scrollViews()[0].webViews()[0].secureTextFields()[0].tap();
+    
+    target.delay(2);
+    app.keyboard().typeString(password);
+    
+    target.delay(4);
+    window.scrollViews()[0].webViews()[0].secureTextFields()[1].tap();
+    
+    target.delay(2);
+    app.keyboard().typeString(password);
+    
+    target.delay(4);
+    window.scrollViews()[0].webViews()[0].switches()[0].tap();
+    window.scrollViews()[0].webViews()[0].switches()[0].setValue[1];
+    
+    target.delay(6);
+    target.captureScreenWithName("successfull register");
+    
+    target.delay(4);
+    window.scrollViews()[0].webViews()[0].buttons()[0].tap();
+    
+    target.delay(2);
+    UIALogger.logPass("Redeemption flow completed successfully");
+    
+    
     //Click on "Sign in" button....
     target.delay(4);
     window.scrollViews()[0].webViews()[0].links()[0].tap();
-
+    
     //Tour.......
     target.delay(4);
     UIALogger.logStart("Tour pages...");
     target.delay(6);
     target.frontMostApp().mainWindow().images()["onboarding_hospital_background.png"].tap();
-        
+    
     if(production == "tourpages")  {
-    target.delay(2);
-    window.buttons()[0].tap();
-    target.delay(2);
-    window.buttons()[0].tap();
-    target.delay(2);
-    window.buttons()[0].tap();
-    target.delay(2);
-    window.buttons()[0].tap();
+        target.delay(2);
+        window.buttons()[0].tap();
+        target.delay(2);
+        window.buttons()[0].tap();
+        target.delay(2);
+        window.buttons()[0].tap();
+        target.delay(2);
+        window.buttons()[0].tap();
     }
     else
     {
-    target.delay(2);
-    window.buttons()[0].tap();
+        target.delay(2);
+        window.buttons()[0].tap();
     }
     //tour last buttons......
     target.delay(4);
@@ -193,7 +200,7 @@ function sanity() {
     app.tabBar().buttons()[0].tap();
     target.delay(2);
     UIALogger.logPass("Tour completed successfully");
-
+    
     //ADD MOMENT..........................................................
     target.delay(2);
     UIALogger.logStart("adding moment in streams page...");
@@ -218,13 +225,13 @@ function sanity() {
     app.windows()[1].buttons()["Done"].tap();
     target.delay(5);
     window.scrollViews()[0].scrollViews()[0].buttons()[0].tap();
-
+    
     //click on post...
     target.delay(2);
     window.scrollViews()[0].buttons()["post icon"].tap();
     target.delay(2);
     UIALogger.logPass("posted moment succesfully...");
-
+    
     //click on "No body" in replacement scereen
     target.delay(6);
     target.frontMostApp().mainWindow().buttons()[3].tap();
@@ -246,11 +253,26 @@ function sanity() {
     target.delay(2);
     UIALogger.logPass("post deleted succesfully...");
     
-   
+    
+    
+    
+    
     
     //Add child.........................................
+    
     target.delay(10);
     UIALogger.logStart("adding child");
+    target.delay(3);
+    app.tabBar().buttons()[1].tap();
+    target.delay(2);
+    app.navigationBar().rightButton().tap();
+    target.delay(2);
+    if(selectdevice == "iphone4") {
+        app.actionSheet().buttons()[1].tap();
+    }
+    else {
+        app.actionSheet().collectionViews()[0].cells()[1].tap();
+    }
     target.delay(2);
     app.tabBar().buttons()[1].tap();
     target.delay(2);
@@ -335,7 +357,7 @@ function sanity() {
     target.captureScreenWithName("Kid dashboard");
     target.delay(5);
     app.tabBar().buttons()[0].tap();
-  
+    
     //Delete post............................................
     target.delay(10);
     UIALogger.logStart("delete post");
@@ -348,7 +370,7 @@ function sanity() {
     app.tabBar().buttons()[0].tap();
     target.delay(2);
     UIALogger.logPass("post deleted succesfully...");
-
+    
     
     
     //Add milestone post in parent dashboard.......................................
@@ -409,7 +431,7 @@ function sanity() {
     window.scrollViews()[0].buttons()["post icon"].tap();
     target.delay(2);
     UIALogger.logPass("added milestone");    
-        
+    
     //Replacement screen all cases
     target.delay(4);
     target.frontMostApp().mainWindow().buttons()[4].tap();
@@ -552,7 +574,7 @@ function sanity() {
     UIALogger.logPass("edited milestone to moment");
     target.delay(3);
     target.captureScreenWithName("edited milestone streams");
-
+    
     
     
     // Edit parent details.......................................
@@ -587,7 +609,7 @@ function sanity() {
     if(selectdevice == "iphone4") {
         app.actionSheet().buttons()[1].tap();
     }
-       else {
+    else {
         app.actionSheet().collectionViews()[0].cells()[1].tap();
     }
     //select photo
@@ -716,7 +738,7 @@ function sanity() {
     window.buttons()["btnEditSave"].tap();
     target.delay(4);
     target.captureScreenWithName("editedprofile");
-   //edit picture
+    //edit picture
     target.delay(6);
     app.windows()[0].buttons()["btnProfileEditPhoto"].tap();
     //choose photo options
@@ -757,14 +779,14 @@ function sanity() {
     app.tabBar().buttons()[2].tap();
     //Document tour
     if(production == "tourpages")   {
-    target.delay(2);
-    window.buttons()[0].tap();
-    target.delay(2);
-    window.buttons()[0].tap();
-    target.delay(2);
-    window.buttons()[0].tap();
-    target.delay(2);
-    window.buttons()[0].tap();
+        target.delay(2);
+        window.buttons()[0].tap();
+        target.delay(2);
+        window.buttons()[0].tap();
+        target.delay(2);
+        window.buttons()[0].tap();
+        target.delay(2);
+        window.buttons()[0].tap();
     }
     else
     {
@@ -943,12 +965,13 @@ function sanity() {
     //selecting users list;
     target.delay(5);
     window.tableViews()[0].cells()[0].tap();
-    target.delay(5);
-    window.tableViews()[0].cells()[0].tap();
+    //target.delay(5);
+    //window.tableViews()[0].cells()[0].tap();
     //clicking on options
-    target.delay(10);
-    target.frontMostApp().mainWindow().tableViews()[0].tap();
-    app.windows()[0].buttons()["btnProfileOptions"].tap();
+    //target.delay(10);
+    //target.frontMostApp().mainWindow().tableViews()[0].tap();
+    target.delay(6);
+    target.frontMostApp().windows()[0].buttons()[3].tap();
     // selecting change document type
     target.delay(2);
     if(selectdevice == "iphone4") { 
@@ -973,7 +996,7 @@ function sanity() {
     target.captureScreenWithName("see document changed list");
     target.delay(2);   
     app.tabBar().buttons()[0].tap();
-
+    
     
     
     //Document switch person..........................
@@ -1004,7 +1027,7 @@ function sanity() {
     window.tableViews()[0].cells()[1].tap();
     target.delay(5);
     UIALogger.logPass("changed document list");
-
+    
     
     
     //Edit document details......................................
@@ -1127,7 +1150,7 @@ function sanity() {
     target.tap({x:305.00, y:8.50});
     target.delay(5);
     UIALogger.logPass("shared successfully...");
-
+    
     
     //Delete document...............................
     target.delay(5);
@@ -1144,10 +1167,10 @@ function sanity() {
     }
     target.delay(2);
     UIALogger.logPass("Deleted successfully...");
-
+    
     
     //Say something.................................................
-    target.delay(2);
+    target.delay(6);
     UIALogger.logStart("posting say something");
     target.delay(2);
     app.tabBar().buttons()[0].tap();
@@ -1165,20 +1188,191 @@ function sanity() {
     target.delay(2);
     UIALogger.logPass("posted say something");
     
-       
+    
+    
+    //Parent invitation....................................................
+    target.delay(2);
+    UIALogger.logStart("Parent invitation");
+    target.delay(2);
+    app.tabBar().buttons()[1].tap();
+    target.delay(1);
+    app.navigationBar().rightButton().tap();
+    target.delay(1);
+    if(selectdevice == "iphone4") {
+        app.actionSheet().buttons()[1].tap();
+    }
+    else {
+        app.actionSheet().collectionViews()[0].cells()[1].tap();
+    }
+    target.delay(2);
+    target.frontMostApp().mainWindow().buttons()[0].tap();
+    target.delay(6);
+    var getinvitername = window.tableViews()[0].cells()[clnumber].name();
+    target.delay(2);
+    window.tableViews()[0].cells()[clnumber].tap();
+    target.delay(4);
+    window.scrollViews()[0].switches()[0].setValue(0);
+    window.scrollViews()[0].switches()[0].setValue(1);
+    target.delay(2);
+    window.scrollViews()[0].buttons()[1].tap();
+    target.delay(1);
+    if(selectdevice == "iphone4") {
+        app.actionSheet().buttons()[2].tap();
+    }
+    else {
+        app.actionSheet().collectionViews()[0].cells()[2].tap();
+    }
+    target.delay(2);
+    app.navigationBar().rightButton().tap();
+    target.delay(6);
+    target.tap({x:296.50, y:291.50});
+    target.delay(2);
+    UIALogger.logPass("Invited successfully" + getinvitername);
+    target.delay(5);
+    app.tabBar().buttons()[0].tap();
+    
+    
+    
+    
+    //Friend invitation flow..........................................................
+    target.delay(5);
+    UIALogger.logStart("inviting friend");   
+    target.delay(2);
+    app.tabBar().buttons()[3].tap();
+    target.delay(2);
+    app.navigationBar().buttons()[1].tap();
+    target.delay(2);
+    target.frontMostApp().mainWindow().buttons()[1].tap();
+    
+    //log cotent inviter name.....
+    target.delay(8);
+    window.navigationBar().segmentedControls()[0].buttons()[0].tap();
+    target.delay(2);
+    var getinvitername = window.tableViews()[0].cells()[contactnumber].name();
+    target.delay(6);
+    window.tableViews()[0].cells()[contactnumber].tap();
+    target.delay(5);
+    target.tap({x:310.50, y:290.00});
+    target.delay(1);
+    app.navigationBar().rightButton().tap();
+    target.delay(5);
+    UIALogger.logPass("you are invited to " + getinvitername);
+    
+    
+    //Pending list..............................................................
+    target.delay(5);
+    UIALogger.logStart("pending friends list...."); 
+    target.delay(2);
+    target.frontMostApp().mainWindow().tableViews()[0].cells()["Pending"].tap();
+    target.delay(4);
+    target.tap({x:314.00, y:91.50});
+    target.delay(2);
+    target.frontMostApp().actionSheet().collectionViews()[0].cells()[0].buttons()[0].tap();
+    target.delay(10);
+    target.frontMostApp().tabBar().buttons()[3].tap();
+    target.delay(5);
+    UIALogger.logPass("Un-invite successfully...");
+    
+    
+    
+    
+    
+    //Invite existing user..............................................
+    target.delay(5);
+    UIALogger.logStart("Invite existing user");   
+    target.delay(2);
+    app.navigationBar().buttons()[1].tap();
+    target.delay(2);
+    target.frontMostApp().mainWindow().buttons()[1].tap();
+    
+    //log cotent inviter name.....
+    target.delay(8);
+    window.navigationBar().segmentedControls()[0].buttons()[0].tap();
+    target.delay(4);
+    target.tap({x:270.00, y:190.00});
+    target.delay(4);
+    target.frontMostApp().mainWindow().buttons()[0].tap();
+    target.delay(5);
+    target.captureScreenWithName("After invited");
+    target.delay(10);
+    app.navigationBar().rightButton().tap();
+    target.delay(3);
+    target.frontMostApp().mainWindow().tableViews()[0].cells()[1].tap();
+    target.delay(2);
+    target.frontMostApp().mainWindow().buttons()[1].tap();
+    target.delay(4);
+    UIALogger.logPass("Invite existing user successfully...");
+    
+    
+    //Accept friend invitation.................................................
+    UIALogger.logStart("login with another user")
+    target.delay(4);
+    app.tabBar().buttons()[4].tap();
+    target.delay(2)
+    logout();
+    //login with another user....
+    target.delay(2)
+    window.textFields()[0].tap();
+    window.textFields()[0].setValue(email1);
+    target.delay(1);
+    target.frontMostApp().mainWindow().secureTextFields()[0].tap();
+    window.secureTextFields()[0].setValue(password);
+    target.delay(1);
+    window.buttons()[0].tap();
+    UIALogger.logPass("Logged in another user successfully");
+    
+    
+    //Accept friend invitation..........................................
+    target.delay(10);
+    target.frontMostApp().mainWindow().buttons()[2].tap();
+    target.delay(4);
+    app.tabBar().buttons()[3].tap();
+    target.delay(4);
+    target.captureScreenWithName("After click on share back");
+    
+    
+    //Again login old user................................................
+    target.delay(8);
+    app.tabBar().buttons()[4].tap();
+    target.delay(2)
+    logout();
+    //login with old user...
+    target.delay(2)
+    window.textFields()[0].tap();
+    window.textFields()[0].setValue(email);
+    target.delay(1);
+    target.frontMostApp().mainWindow().secureTextFields()[0].tap();
+    window.secureTextFields()[0].setValue(newpassword);
+    target.delay(1);
+    window.buttons()[0].tap();
+    
+    
+    
+    //Skip the Existing user in recommnded list......................
+    target.delay(5);
+    UIALogger.logStart("Skip the existing user");
+    target.delay(2);
+    app.tabBar().buttons()[3].tap();
+    target.delay(2);
+    app.navigationBar().buttons()[1].tap();
+    target.delay(2);
+    target.frontMostApp().mainWindow().buttons()[1].tap();
+    
+    //log cotent inviter name.....
+    target.delay(8);
+    window.navigationBar().segmentedControls()[0].buttons()[0].tap();
+    target.delay(2);
+    target.captureScreenWithName("Before skip");
+    target.delay(4);
+    target.tap({x:90.00, y:190.00});
+    target.delay(2);
+    target.captureScreenWithName("After skip");
+    target.delay(5);
+    app.navigationBar().rightButton().tap();
+    target.delay(5);
+    UIALogger.logPass("Skipped successfully...");
+    
+    
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
